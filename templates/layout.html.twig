@@ -14,15 +14,11 @@
 	</head>
 	<body>
 		<!--[if lt IE 7]>
-		            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-		        <![endif]-->
-		{% block navbar %}{% endblock %}
-
-		<header>
-			<h1>PIZZERIA</h1>
-			<h2>MAMMAMIA</h2>
-		</header>
-
+				            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+				        <![endif]-->
+		{% block navbar %}
+			{% include 'navbar.html.twig' %}
+		{% endblock %}
 
 		{% block content %}{% endblock %}
 
