@@ -12,7 +12,9 @@ CREATE TABLE menu (
     name TEXT(60),
     image_path TEXT,
     price REAL DEFAULT (0) NOT NULL,
-    description TEXT
+    description TEXT,
+    category_id INTEGER NOT NULL,
+    CONSTRAINT menu_categories_FK FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- users definition
