@@ -34,12 +34,22 @@ class Database
         return $this;
     }
 
-    public function fetch($type = SQLITE3_ASSOC): array
+    public function fetchOne($type = SQLITE3_ASSOC): array
     {
         if ($this->checkResult()) {
             throw new Exception("No result to fetch");
         }
-        return $this->result->fetchArray($type);
+        $row = $this->result->fetchArray($type);
+        return $row !== false ? $row : [];
+    }
+
+    public function fetchAll(): array
+    {
+        $results = [];
+        while ($result = $this->fetchOne()) {
+            $results[] = $result;
+        }
+        return $results;
     }
 
     private function checkResult(): bool
@@ -52,7 +62,7 @@ class Database
         if ($this->checkResult()) {
             throw new Exception("No result to fetch");
         }
-        return $this->fetch()[0];
+        return $this->fetchOne()[0];
     }
 
     public function close(): null
