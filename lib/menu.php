@@ -1,6 +1,6 @@
 <?php
-require_once './bootstrap.php';
-require_once './database/database.php';
+require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/database/database.php';
 
 $database = new Database();
 $menu_items = $database->query("SELECT 
