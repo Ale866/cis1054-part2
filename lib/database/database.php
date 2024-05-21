@@ -54,7 +54,7 @@ class Database
 
     private function checkResult(): bool
     {
-        return $this->result == null;
+        return $this->result == null || $this->result->numColumns() == 0;
     }
 
     public function first(): array
@@ -62,7 +62,7 @@ class Database
         if ($this->checkResult()) {
             throw new Exception("No result to fetch");
         }
-        return $this->fetchOne()[0];
+        return $this->fetchOne();
     }
 
     public function close(): null

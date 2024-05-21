@@ -20,16 +20,11 @@ CREATE TABLE menu (
 -- users definition
 CREATE TABLE users (
     id INTEGER NOT NULL,
-    username TEXT(32) NOT NULL,
     password TEXT(32) NOT NULL,
-    name TEXT(32) NOT NULL,
-    surname TEXT DEFAULT (32) NOT NULL,
-    email TEXT(64),
+    email TEXT(64) UNIQUE,
     "role" TEXT DEFAULT ('USER') NOT NULL,
     CONSTRAINT id_pk PRIMARY KEY (id)
 );
-
-CREATE INDEX users_username_IDX ON users (username);
 
 -- favorites definition
 CREATE TABLE favorites (
