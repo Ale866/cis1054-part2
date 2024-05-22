@@ -1,57 +1,65 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    box-shadow: 0 4px 8px #0000001a;
-    background-image: url('/assets/images/pepperoni-pizza.jpg');
-    background-size: cover;
-    color: @__black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 4px 8px #0000001a;
+  background-image: url("/assets/images/pepperoni-pizza.jpg");
+  background-size: cover;
+  color: @__black;
 
-    h1 {
-        text-align: center;
-    }
+  h1 {
+    text-align: center;
+  }
+
+  .back-button {
+    color: @__red_light;
+    background-color: @__black;
+    border: none;
+    margin: 20px;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
 }
 
 .login-form {
-    width: max(40vw, 300px);
-    border-radius: 10px;
-    padding: 20px;
-    margin: auto;
-    // background-color: gray;
-    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-    backdrop-filter: blur(14px);
-    // background-color: rgba(255, 255, 255, 0.2);
+  width: max(40vw, 300px);
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+  backdrop-filter: blur(14px);
+  background-color: rgba(@__white, 0.2);
+
+  label {
+    color: @__green_dark;
+  }
+
+  input {
     background-color: rgba(@__white, 0.2);
+  }
 
-    label {
-        color: @__green_dark
-    }
-
-    input {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    a {
-        color: @__red_light;
-    }
+  a {
+    color: @__red_light;
+  }
 }
 
 .submit-button {
-    background-color: @__green_light;
-    width: 100%;
-    display: block;
-    margin: 0px auto;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: "Courier New", Courier, monospace;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
+  background-color: @__green_light;
+  width: 100%;
+  display: block;
+  margin: 0px auto;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .submit-button:hover {
-    background-color: @__green_dark;
+  background-color: @__green_dark;
 }

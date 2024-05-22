@@ -7,6 +7,7 @@ html {
   background-color: #292929;
   color: #fff5e1;
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
 }
 * {
   box-sizing: border-box;
@@ -74,7 +75,6 @@ a {
 nav {
   height: 10%;
   background-color: #6f0b17;
-  color: lightblue;
   text-transform: uppercase;
 }
 nav > .img-container {
@@ -180,12 +180,21 @@ nav > ul > li > a:hover {
   flex-direction: column;
   width: 100%;
   box-shadow: 0 4px 8px #0000001a;
-  background-image: url('/assets/images/pepperoni-pizza.jpg');
+  background-image: url("/assets/images/pepperoni-pizza.jpg");
   background-size: cover;
   color: #292929;
 }
 .login-container h1 {
   text-align: center;
+}
+.login-container .back-button {
+  color: #cf142b;
+  background-color: #292929;
+  border: none;
+  margin: 20px;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 .login-form {
   width: max(40vw, 300px);
@@ -200,7 +209,7 @@ nav > ul > li > a:hover {
   color: #007a3b;
 }
 .login-form input {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 245, 225, 0.2);
 }
 .login-form a {
   color: #cf142b;
