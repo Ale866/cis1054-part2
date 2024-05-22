@@ -19,7 +19,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header('Location: index.php');
         exit();
     } else {
-        flash_error('Invalid email or password');
+        flash_error('email', 'Invalid email or password');
     }
 }
 echo $twig->render('login.html.twig', ['errors' => $_SESSION['errors'] ?? '', 'email' => $_POST['email'] ?? '']);

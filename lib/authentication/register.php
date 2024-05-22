@@ -31,11 +31,11 @@ class Register
         $errors = [];
 
         if ($this->check_duplicate_email($email)) {
-            $errors[] = 'Email already exists';
+            $errors['email'] = 'Email already exists';
         }
 
         if ($this->check_invalid_password($password)) {
-            $errors[] = 'Password must be at least 8 characters';
+            $errors['password'] = 'Password must be at least 8 characters';
         }
 
         if ($errors != []) {
