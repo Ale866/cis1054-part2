@@ -6,10 +6,20 @@ html {
   height: 100%;
   background-color: #292929;
   color: #fff5e1;
+  font-family: "Roboto", sans-serif;
+}
+* {
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
   color: inherit;
+}
+.alert {
+  margin: 5px 0;
+}
+.alert-danger {
+  color: #6f0b17;
 }
 .center {
   display: flex;
@@ -55,6 +65,12 @@ a {
 .p-20 {
   padding: 20px;
 }
+.b-10 {
+  border-radius: 10px;
+}
+.b-20 {
+  border-radius: 20px;
+}
 nav {
   height: 10%;
   background-color: #6f0b17;
@@ -88,7 +104,7 @@ nav > ul > li a {
 nav > ul > li > a:hover {
   background-color: #9d1021;
 }
-@media screen and (max-width: 786px) {
+@media screen and (width <= 768px) {
   nav {
     flex-direction: column;
     height: unset;
@@ -158,4 +174,84 @@ nav > ul > li > a:hover {
   .menu-items-container {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 4px 8px #0000001a;
+  background-image: url('/assets/images/pepperoni-pizza.jpg');
+  background-size: cover;
+  color: #292929;
+}
+.login-container h1 {
+  text-align: center;
+}
+.login-form {
+  width: max(40vw, 300px);
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 245, 225, 0.2);
+}
+.login-form label {
+  color: #007a3b;
+}
+.login-form input {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.login-form a {
+  color: #cf142b;
+}
+.submit-button {
+  background-color: #208320;
+  width: 100%;
+  display: block;
+  margin: 0px auto;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.submit-button:hover {
+  background-color: #007a3b;
+}
+.form-group {
+  margin: 0 10px;
+  padding: 10px;
+}
+.form-group label {
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+}
+.form-group input {
+  max-width: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+.form-group input:focus {
+  outline: #208320;
+  border: #208320 1px solid;
+  box-shadow: 0 0 5px #208320;
+}
+.form-group.form-error label {
+  color: #6f0b17;
+}
+.form-group.form-error input {
+  border: 1px #6f0b17 solid;
+}
+.form-group.form-error input:focus {
+  border: 1px #6f0b17 solid;
+  box-shadow: 0 0 5px #6f0b17;
 }

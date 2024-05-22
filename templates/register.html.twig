@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-	<html>
-	<!--<![endif]-->
-		<head>
-		<meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>PIZZERIA MAMMAMIA</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="assets/styles/styles.css">
-	</head>
-	<body>
-		<!--[if lt IE 7]>
-																																														<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-																																														<![endif]-->
-		<div class="container">
-			<div class="login">
-				<h1>PIZZERIA MAMMAMIA</h1>
-				<form action="register.php" method="post">
+{% extends 'layout.html.twig' %}
+{% block navbar %}{% endblock %}
+{% block content %}
+	<div class="login-container h-100">
+		<div class="login-form">
+			<h1>PIZZERIA MAMMAMIA</h1>
+			<form method="POST" action="register.php">
+				<div class="form-group {% if errors['email'] %} form-error {% endif %}">
+					<label for="email">Email</label>
+					<input class="" type="text" id="email" name="email" value="{{email}}" required>
 					{% include 'error.html.twig' with {field: 'email'} %}
-					<input type="email" name="email" value="{{email}}" placeholder="Email" required="required">
+				</div>
+				<div class="form-group {% if errors['email'] %} form-error {% endif %}">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" required>
 					{% include 'error.html.twig' with {field: 'password'} %}
-					<input type="password" name="password" placeholder="Password" required="required">
-					<button type="submit" class="btn btn-primary btn-block btn-large">Register.</button>
-				</form>
-			</div>
+				</div>
+				<div class="form-group">
+					<button class="submit-button">Register🍕</button>
+				</div>
+			</form>
 
 			<div>
-				<a href="/login.php">Login</a>
+				Already have an account?
+				<a href="/login">
+					Login here
+				</a>
 			</div>
 		</div>
-	</body>
-</html></body></html> <script src="" async defer></script>
+	</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+.form-group {
+    // Common styles for form-container class
+    margin: 0 10px;
+    padding: 10px;
+
+    label {
+        cursor: pointer;
+        display: block;
+        font-weight: 400;
+    }
+
+    input {
+        // Styles for input fields
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        transition: all 0.1s ease-in-out;
+    }
+
+    input:focus {
+        outline: @__green_light;
+        border: @__green_light 1px solid;
+        box-shadow: 0 0 5px @__green_light;
+    }
+
+    &.form-error {
+        label {
+            color: @__red_dark;
+        }
+
+        input {
+            border: 1px @__red_dark solid;
+        }
+
+        input:focus {
+            border: 1px @__red_dark solid;
+            box-shadow: 0 0 5px @__red_dark;
+        }
+    }
+}
