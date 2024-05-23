@@ -7,7 +7,6 @@ html {
   background-color: #292929;
   color: #fff5e1;
   font-family: "Roboto", sans-serif;
-  overflow: hidden;
 }
 * {
   box-sizing: border-box;
@@ -21,6 +20,10 @@ a {
 }
 .alert-danger {
   color: #6f0b17;
+}
+.image-container {
+  height: 90%;
+  overflow: hidden;
 }
 .center {
   display: flex;
@@ -47,6 +50,15 @@ a {
 }
 .h-100 {
   height: 100%;
+}
+.h-75 {
+  height: 75%;
+}
+.h-50 {
+  height: 50%;
+}
+.w-100 {
+  width: 100%;
 }
 .m-0 {
   margin: 0;
@@ -263,4 +275,95 @@ nav > ul > li > a:hover {
 .form-group.form-error input:focus {
   border: 1px #6f0b17 solid;
   box-shadow: 0 0 5px #6f0b17;
+}
+.wrapper {
+  height: 90%;
+  gap: 10px;
+}
+.wrapper .select-container {
+  height: 15%;
+}
+.wrapper .container {
+  padding: 20px;
+  background-color: #fff5e1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-areas: "t1-4 t1-4 t2-4 t2-4 t3-4 t3-4" "t4-4 t4-4 t5-4 t5-4 t6-4 t6-4" "t7-2 t8-2 t9-2 t10-2 t11-2 t12-2" "entrance t13-2 t14-2 t15-2 t16-2 t17-2";
+  width: 60%;
+  height: 90%;
+}
+.wrapper .container > :not(.entrance) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper .container > :not(.entrance)[data-tableIsTaken="false"] {
+  background-color: #6f4518;
+}
+.wrapper .container > :not(.entrance)[data-tableIsTaken="false"]:hover {
+  background-color: #995f21;
+  cursor: pointer;
+}
+.wrapper .container > [data-tableIsTaken="true"] {
+  background-color: #cf142b;
+  cursor: not-allowed;
+}
+.wrapper .t1-4 {
+  grid-area: t1-4;
+}
+.wrapper .t2-4 {
+  grid-area: t2-4;
+}
+.wrapper .t3-4 {
+  grid-area: t3-4;
+}
+.wrapper .t4-4 {
+  grid-area: t4-4;
+}
+.wrapper .t5-4 {
+  grid-area: t5-4;
+}
+.wrapper .t6-4 {
+  grid-area: t6-4;
+}
+.wrapper .t7-2 {
+  grid-area: t7-2;
+}
+.wrapper .t8-2 {
+  grid-area: t8-2;
+}
+.wrapper .t9-2 {
+  grid-area: t9-2;
+}
+.wrapper .t10-2 {
+  grid-area: t10-2;
+}
+.wrapper .t11-2 {
+  grid-area: t11-2;
+}
+.wrapper .t12-2 {
+  grid-area: t12-2;
+}
+.wrapper .t13-2 {
+  grid-area: t13-2;
+}
+.wrapper .t14-2 {
+  grid-area: t14-2;
+}
+.wrapper .t17-2 {
+  grid-area: t17-2;
+}
+.wrapper .entrance {
+  grid-area: entrance;
+}
+.wrapper .t16-2 {
+  grid-area: t16-2;
+}
+.wrapper .t15-2 {
+  grid-area: t15-2;
 }
