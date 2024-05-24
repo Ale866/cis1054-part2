@@ -8,6 +8,13 @@ html {
   color: #fff5e1;
   font-family: "Roboto", sans-serif;
 }
+.app-container {
+  background: #6f0b17;
+  background: -moz-radial-gradient(circle, #6f0b17 0%, #cf142b 100%);
+  background: -webkit-radial-gradient(circle, #6f0b17 0%, #cf142b 100%);
+  background: radial-gradient(circle, #6f0b17 0%, #cf142b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f0b17", endColorstr="#cf142b", GradientType=1);
+}
 * {
   box-sizing: border-box;
 }
@@ -159,30 +166,77 @@ nav > ul > li > a:hover {
   padding: 20px;
   color: #292929;
 }
-.card {
-  background-color: #f8f9fa;
-  border: 1px solid #f8f9fa;
-  border-radius: 0.25rem;
+.menu-items-container .card {
+  background-color: #fff5e1;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
+  box-shadow: 0 0 0.5rem 0 rgba(41, 41, 41, 0.9);
 }
-.card-header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #f8f9fa;
+.menu-items-container .card:hover {
+  box-shadow: 0 0 0.5rem 0 rgba(0, 122, 59, 0.6);
+}
+.menu-items-container .card-header {
+  margin: 0.75rem 0;
+}
+.menu-items-container .card-header,
+.menu-items-container .card-body {
+  padding: 0 1.25rem;
+}
+.menu-items-container hr {
+  width: 80%;
+}
+.menu-items-container .card-body {
+  margin: 0.75rem 0;
+}
+.menu-items-container .card-content {
+  margin: 0.75rem 0;
+}
+.menu-items-container .card-content p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #292929;
+}
+.menu-items-container .card-content .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #007a3b;
+}
+.menu-items-container .card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1.25rem;
 }
-.card-body {
-  padding: 1.25rem;
+.menu-items-container .like-btn {
+  all: unset;
+  cursor: pointer;
 }
-.card-image img {
+.menu-items-container .like-btn .fa-heart {
+  color: #cf142b;
+  font-size: 1.25rem;
+}
+.menu-items-container .like-btn:focus {
+  outline: #6f0b17 auto 5px;
+}
+.menu-items-container .card-chip {
+  padding: 0.25rem;
+  background-color: #007a3b;
+  color: #fff5e1;
+  border-radius: 0.5rem;
+}
+.menu-items-container .card-image img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   max-width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .menu-items-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (min-width: 1072px) {
+@media (min-width: 900px) {
   .menu-items-container {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
