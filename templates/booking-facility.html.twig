@@ -6,100 +6,58 @@
 			<div>select 1</div>
 			<div>siumsium</div>
 		</div>
-		<form class="center w-100 h-75">
+		<div id="booking-facility-form" class="center w-100 h-75">
 			<ul class="container" id="tableList">
-				<li id="1" class="t1-4" data-tableistaken="true">
-					<div>Table: 1</div>
-					<div>4 people</div>
-				</li>
-				<li id="2" class="t2-4" data-tableistaken="false">
-					<div>Table: 2</div>
-					<div>4 people</div>
-				</li>
-				<li id="3" class="t3-4" data-tableistaken="false">
-					<div>Table: 3</div>
-					<div>4 people</div>
-				</li>
-				<li id="4" class="t4-4" data-tableistaken="false">
-					<div>Table: 4</div>
-					<div>4 people</div>
-				</li>
-				<li id="5" class="t5-4" data-tableistaken="false">
-					<div>Table: 5</div>
-					<div>4 people</div>
-				</li>
-				<li id="6" class="t6-4" data-tableistaken="false">
-					<div>Table: 6</div>
-					<div>4 people</div>
-				</li>
-				<li id="7" class="t7-2" data-tableistaken="false">
-					<div>Table: 7</div>
-					<div>2 people</div>
-				</li>
-				<li id="8" class="t8-2" data-tableistaken="false">
-					<div>Table: 8</div>
-					<div>2 people</div>
-				</li>
-				<li id="9" class="t9-2" data-tableistaken="false">
-					<div>Table: 9</div>
-					<div>2 people</div>
-				</li>
-				<li id="10" class="t10-2" data-tableistaken="false">
-					<div>Table: 10</div>
-					<div>2 people</div>
-				</li>
-				<li id="11" class="t11-2" data-tableistaken="false">
-					<div>Table: 11</div>
-					<div>2 people</div>
-				</li>
-				<li id="12" class="t12-2" data-tableistaken="false">
-					<div>Table: 12</div>
-					<div>2 people</div>
-				</li>
-				<li id="13" class="t13-2" data-tableistaken="false">
-					<div>Table: 13</div>
-					<div>2 people</div>
-				</li>
-				<li id="14" class="t14-2" data-tableistaken="false">
-					<div>Table: 14</div>
-					<div>2 people</div>
-				</li>
-				<li id="15" class="t17-2" data-tableistaken="false">
-					<div>Table: 17</div>
-					<div>2 people</div>
-				</li>
-				<li class="entrance"></li>
-				<li id="16" class="t16-2" data-tableistaken="false">
-					<div>Table: 16</div>
-					<div>2 people</div>
-				</li>
-				<li id="17" class="t15-2" data-tableistaken="false">
-					<div>Table: 15</div>
-					<div>2 people</div>
-				</li>
+				{% for table in tables %}
+					<li id="{{table.id}}" class="t{{table.id}}-{{table.n_person}}" data-tableistaken="{{table.is_taken ? 'true' : 'false'}}">
+						<div>Table:
+							{{table.id}}</div>
+						<div>{{table.n_person}}
+							people</div>
+					</li>
+				{% endfor %}
 			</ul>
-			<input type="submit" value="Book!" action="" method="POST"></input>
-		</form>
-    </div>
-<script>
-
-const list = document.getElementById('tableList');
-
-const selectedTables = [];
-console.log(selectedTables);
-[...list.children].forEach((li) => {
-    li.addEventListener('click', () => {
-        if (li.dataset.tableistaken == 'false' && !selectedTables.some(table => table.id === parseInt(li.id))) {
-            selectedTables.push({ id: parseInt(li.id), isTaken: true });
-            li.style.backgroundColor = 'green';
-        } else if (li.dataset.tableistaken == 'false') {
-            selectedTables.pop({ id: li.id });
-            li.dataset.tableistaken = 'false';
-            li.style.backgroundColor = '#6f4518';
-        }
-    })
-});
-
-</script>
-	{% endblock %}
-
+			<button id="book-btn">Book!</button>
+		</div>
+	</div>
+	 <script>
+																
+						const list = document.getElementById('tableList');
+						
+						const selectedTables = [];
+						console.log(selectedTables);
+						[...list.children].forEach((li) => {
+							li.addEventListener('click', () => {
+								if (li.dataset.tableistaken == 'false' && !selectedTables.some(table => table.id === parseInt(li.id))) {
+									selectedTables.push({ id: parseInt(li.id), isTaken: true });
+									li.style.backgroundColor = 'green';
+								} else if (li.dataset.tableistaken == 'false') {
+									selectedTables.pop({ id: li.id });
+									li.dataset.tableistaken = 'false';
+									li.style.backgroundColor = '#6f4518';
+								}
+								console.log(selectedTables)
+							})
+						});
+						
+						document.getElementById('book-btn').addEventListener('click',async (e) => {		
+							let results = await fetch('booking-facility.php', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({ tables: selectedTables })
+							});
+							if (!results.ok) {
+								return;
+							}
+						
+							for(table of selectedTables){
+								let li = document.getElementById(table.id);
+								li.style.backgroundColor = ""
+								li.dataset.tableistaken = table.isTaken ? "true" : "false";
+							}
+						})
+						
+		</script>
+{% endblock %}
