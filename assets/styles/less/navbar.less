@@ -3,25 +3,28 @@ nav {
   background-color: @__red_dark;
   text-transform: uppercase;
 
-  > .img-container {
+  >.img-container {
     width: 200px;
     background-color: gray;
   }
 
-  > .auth-container {
+  >.auth-container {
     width: 15%;
     order: 3;
   }
 
-  > ul {
-    > li {
+  >ul {
+    >li {
       height: 100%;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      a {
+
+      a,
+      .logout-btn,
+      form {
         color: @__white;
         width: 100%;
         height: 100%;
@@ -29,25 +32,35 @@ nav {
         justify-content: center;
         align-items: center;
       }
-      > a:hover {
+
+      form,
+      .logout-btn {
+        cursor: pointer;
+      }
+
+      >a:hover,
+      .logout-btn:hover,
+      form:hover {
         background-color: lighten(@__red_dark, 10%);
       }
     }
   }
 }
 
-@media screen and (width <= 768px) {
+@media screen and (width <=768px) {
   nav {
     flex-direction: column;
     height: unset;
-    > .img-container {
+
+    >.img-container {
       width: 200px;
       height: 70px;
       align-self: center;
       align-items: center;
       order: 2;
     }
-    > .auth-container {
+
+    >.auth-container {
       position: absolute;
       order: 1;
       left: 0px;
@@ -55,11 +68,13 @@ nav {
       align-self: start;
       height: 50px;
     }
-    > ul {
+
+    >ul {
       width: 100%;
       flex-direction: column;
       order: 3;
-      > li {
+
+      >li {
         height: 40px;
         width: 100%;
         text-align: center;
@@ -70,4 +85,8 @@ nav {
       }
     }
   }
+}
+
+.logout-btn {
+  all: unset;
 }

@@ -18,8 +18,16 @@
 		<li>
 			<a href="menu.php">Menu</a>
 		</li>
-		<li class="auth-container">
-			<a href="login.php">Login</a>
-		</li>
+		{% if logged %}
+			<li>
+				<form method="post" action="logout.php">
+					<button class="logout-btn" type="submit" name="logout">Logout</button>
+				</form>
+			</li>
+		{% else %}
+			<li class="auth-container">
+				<a href="login.php">Login</a>
+			</li>
+		{% endif %}
 	</ul>
 </nav>

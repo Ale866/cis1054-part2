@@ -7,3 +7,4 @@ session_start();
 
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
 $twig = new \Twig\Environment($loader);
+$twig->addGlobal('logged', isset($_SESSION['user_id']));

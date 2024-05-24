@@ -29,9 +29,4 @@ class Login
 
         return false;
     }
-
-    public function logout(): void
-    {
-        session_destroy();
-    }
 }

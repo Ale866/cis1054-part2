@@ -112,7 +112,9 @@ nav > ul > li {
   justify-content: center;
   text-align: center;
 }
-nav > ul > li a {
+nav > ul > li a,
+nav > ul > li .logout-btn,
+nav > ul > li form {
   color: #fff5e1;
   width: 100%;
   height: 100%;
@@ -120,7 +122,13 @@ nav > ul > li a {
   justify-content: center;
   align-items: center;
 }
-nav > ul > li > a:hover {
+nav > ul > li form,
+nav > ul > li .logout-btn {
+  cursor: pointer;
+}
+nav > ul > li > a:hover,
+nav > ul > li .logout-btn:hover,
+nav > ul > li form:hover {
   background-color: #9d1021;
 }
 @media screen and (width <= 768px) {
@@ -157,6 +165,9 @@ nav > ul > li > a:hover {
     align-items: center;
     font-size: 18px;
   }
+}
+.logout-btn {
+  all: unset;
 }
 .menu-items-container {
   display: grid;
