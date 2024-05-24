@@ -10,7 +10,7 @@ class Login
         $this->db = $database;
     }
 
-    public function login($email, $password)
+    public function login($email, $password): bool
     {
         $query = "SELECT * FROM users WHERE email = :email";
 

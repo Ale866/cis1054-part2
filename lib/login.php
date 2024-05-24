@@ -15,7 +15,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $user = $login->login($email, $password);
 
     if ($user) {
-        $_SESSION['user'] = $user;
         header('Location: index.php');
         exit();
     } else {
