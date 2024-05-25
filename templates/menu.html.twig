@@ -8,6 +8,7 @@
 	<div>
 		<div class="category-selector">
 			<a class="category-link" data-is-selected="{{category_filter == '' ? 'true' : 'false'}}" href="/menu">All</a>
+			<a class="category-link" data-is-selected="{{category_filter == 'favorites' ? 'true' : 'false'}}" href="/menu?category=favorites">Favorites</a>
 			{% for category in categories %}
 				<a class="category-link" data-is-selected="{{category_filter == category.id ? 'true' : 'false'}}" href="/menu?category={{category.id}}">{{ category.name }}</a>
 			{% endfor %}

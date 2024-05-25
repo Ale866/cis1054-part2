@@ -22,8 +22,12 @@ $params = [
 ];
 
 if ($category_filter) {
-    $query .= " WHERE c.id = :category";
-    $params[] = ['name' => 'category', 'value' => $category_filter, 'type' => SQLITE3_INTEGER];
+    if ($category_filter === 'favorites') {
+        $query .= " WHERE f.id IS NOT NULL";
+    } else {
+        $query .= " WHERE c.id = :category";
+        $params[] = ['name' => 'category', 'value' => $category_filter, 'type' => SQLITE3_INTEGER];
+    }
 }
 
 $menu_items = $database->query($query, $params)->fetchAll();
