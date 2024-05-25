@@ -92,6 +92,33 @@
 
 }
 
+.category-selector {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.75rem;
+    flex-wrap: wrap;
+
+    .category-link {
+        padding: 4px;
+        border-radius: 0.50rem;
+        background-color: @__green_light;
+        outline: none;
+        border: none;
+        box-shadow: 0 0 0.5rem 0 rgba(@__black, 0.9);
+        cursor: pointer;
+    }
+
+    .category-link[data-is-selected="true"] {
+        background-color: @__green_dark;
+    }
+
+
+
+    .category-btn:hover {
+        background-color: @__green_dark;
+    }
+}
 
 @media (min-width: 500px) {
     .menu-items-container {

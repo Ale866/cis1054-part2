@@ -242,6 +242,28 @@ nav > ul > li form:hover {
   height: 300px;
   object-fit: cover;
 }
+.category-selector {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.75rem;
+  flex-wrap: wrap;
+}
+.category-selector .category-link {
+  padding: 4px;
+  border-radius: 0.5rem;
+  background-color: #208320;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 0.5rem 0 rgba(41, 41, 41, 0.9);
+  cursor: pointer;
+}
+.category-selector .category-link[data-is-selected="true"] {
+  background-color: #007a3b;
+}
+.category-selector .category-btn:hover {
+  background-color: #007a3b;
+}
 @media (min-width: 500px) {
   .menu-items-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
