@@ -1,6 +1,7 @@
 <?php
 
 require_once './bootstrap.php';
+require_once './middleware/authenticated.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once './database/database.php';
