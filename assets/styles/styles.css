@@ -9,11 +9,15 @@ html {
   font-family: "Roboto", sans-serif;
 }
 .app-container {
+  height: 90%;
   background: #6f0b17;
   background: -moz-radial-gradient(circle, #6f0b17 0%, #cf142b 100%);
   background: -webkit-radial-gradient(circle, #6f0b17 0%, #cf142b 100%);
   background: radial-gradient(circle, #6f0b17 0%, #cf142b 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f0b17", endColorstr="#cf142b", GradientType=1);
+}
+i {
+  cursor: pointer;
 }
 * {
   box-sizing: border-box;
@@ -27,10 +31,6 @@ a {
 }
 .alert-danger {
   color: #6f0b17;
-}
-.image-container {
-  height: 90%;
-  overflow: hidden;
 }
 .center {
   display: flex;
@@ -90,6 +90,9 @@ a {
 }
 .b-20 {
   border-radius: 20px;
+}
+.hidden-overflow {
+  overflow: hidden;
 }
 nav {
   height: 10%;
@@ -220,7 +223,6 @@ nav > ul > li form:hover {
 }
 .menu-items-container .like-btn {
   all: unset;
-  cursor: pointer;
 }
 .menu-items-container .like-btn .fa-heart {
   color: #cf142b;
@@ -365,13 +367,58 @@ nav > ul > li form:hover {
   box-shadow: 0 0 5px #6f0b17;
 }
 .wrapper {
-  height: 90%;
   gap: 10px;
 }
-.wrapper .select-container {
-  height: 15%;
+.wrapper #tables-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  gap: 20px;
 }
-.wrapper .container {
+.wrapper #tables-info .selected-tables-info {
+  height: 60%;
+}
+.wrapper #tables-info .selected-tables-info > #selected-tables-list {
+  height: 80%;
+  overflow: auto;
+}
+.wrapper #tables-info .selected-tables-info > #selected-tables-list div {
+  margin: 5px;
+  background-color: #6f4518;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #292929;
+}
+.wrapper #tables-info #book-btn {
+  width: 50%;
+  height: 40px;
+  background-color: #292929;
+  color: #fff5e1;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.wrapper #tables-info #book-btn:hover {
+  background-color: #434343;
+}
+.wrapper #booking-facility-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  width: 75%;
+}
+.wrapper #booking-facility-form .container {
   padding: 20px;
   background-color: #fff5e1;
   display: grid;
@@ -381,25 +428,49 @@ nav > ul > li form:hover {
   gap: 10px;
   grid-auto-flow: row;
   grid-template-areas: "t1-4 t1-4 t2-4 t2-4 t3-4 t3-4" "t4-4 t4-4 t5-4 t5-4 t6-4 t6-4" "t7-2 t8-2 t9-2 t10-2 t11-2 t12-2" "entrance t13-2 t14-2 t15-2 t16-2 t17-2";
-  width: 60%;
-  height: 90%;
+  width: 90%;
+  height: 70%;
 }
-.wrapper .container > :not(.entrance) {
+.wrapper #booking-facility-form .container > :not(.entrance) {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.wrapper .container > :not(.entrance)[data-tableIsTaken="false"] {
+.wrapper #booking-facility-form .container > :not(.entrance)[data-tableIsTaken="false"] {
   background-color: #6f4518;
 }
-.wrapper .container > :not(.entrance)[data-tableIsTaken="false"]:hover {
+.wrapper #booking-facility-form .container > :not(.entrance)[data-tableIsTaken="false"]:hover {
   background-color: #995f21;
   cursor: pointer;
 }
-.wrapper .container > [data-tableIsTaken="true"] {
+.wrapper #booking-facility-form .container > [data-tableIsTaken="true"] {
   background-color: #cf142b;
   cursor: not-allowed;
+}
+.wrapper #booking-facility-form .selection-area {
+  color-scheme: dark;
+}
+.wrapper #booking-facility-form .selection-area > * {
+  border-radius: 15px;
+  border: none;
+  background-color: #292929;
+  width: 250px;
+  height: 40px;
+  text-align: center;
+}
+.wrapper #booking-facility-form .selection-area > * ::-webkit-calendar-picker-indicator {
+  font-size: 24px;
+}
+.wrapper #booking-facility-form #selected-tables-list {
+  width: 400px;
+  background-color: #fff5e1;
+  color: #292929;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  overflow: scroll;
 }
 .wrapper .t1-4 {
   grid-area: t1-4;

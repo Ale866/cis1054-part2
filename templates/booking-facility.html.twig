@@ -1,63 +1,45 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-	<div class="wrapper flex-column">
-		<div class="select-container flex-evenly center w-100">
-			<div>select 1</div>
-			<div>siumsium</div>
-		</div>
+	<div class="wrapper h-100 flex-between">
 		<div id="booking-facility-form" class="center w-100 h-75">
+			<div class="selection-area w-100 flex-evenly">
+				<select class="booking-select" id="booking-select">
+					<option value="0">----- Select a table -----</option>
+					{% for table in tables %}
+						<option value="{{table.id}}">Table number
+							{{table.id}}
+							({{table.n_person}}
+							people)</option>
+					{% endfor %}
+				</select>
+
+				<input type="date" id="booking-date" class="booking-date-input" placeholder="Date" min="{{ "now"|date("Y-m-d") }}" max="{{ (now|date_modify('+1 year'))|date('Y-m-d') }}" required>
+
+			</div>
 			<ul class="container" id="tableList">
 				{% for table in tables %}
 					<li id="{{table.id}}" class="t{{table.id}}-{{table.n_person}}" data-tableistaken="{{table.is_taken ? 'true' : 'false'}}">
-						<div>Table:
+						<div>Table
 							{{table.id}}</div>
-						<div>{{table.n_person}}
-							people</div>
+						<div>({{table.n_person}}
+							people)</div>
 					</li>
 				{% endfor %}
 			</ul>
-			<button id="book-btn">Book!</button>
 		</div>
+		<aside id="tables-info">
+			<div class="selected-tables-info">
+				<h1>Selected tables</h1>
+				<small>Click on the
+					<i class="fas fa-times" title="remove table"></i>
+					to remove the table from the list</small>
+				<div id="selected-tables-list"></div>
+			</div>
+			<button id="book-btn">Book!</button>
+		</aside>
 	</div>
-	 <script>
-																
-						const list = document.getElementById('tableList');
-						
-						const selectedTables = [];
-						console.log(selectedTables);
-						[...list.children].forEach((li) => {
-							li.addEventListener('click', () => {
-								if (li.dataset.tableistaken == 'false' && !selectedTables.some(table => table.id === parseInt(li.id))) {
-									selectedTables.push({ id: parseInt(li.id), isTaken: true });
-									li.style.backgroundColor = 'green';
-								} else if (li.dataset.tableistaken == 'false') {
-									selectedTables.pop({ id: li.id });
-									li.dataset.tableistaken = 'false';
-									li.style.backgroundColor = '#6f4518';
-								}
-								console.log(selectedTables)
-							})
-						});
-						
-						document.getElementById('book-btn').addEventListener('click',async (e) => {		
-							let results = await fetch('booking-facility.php', {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json'
-								},
-								body: JSON.stringify({ tables: selectedTables })
-							});
-							if (!results.ok) {
-								return;
-							}
-						
-							for(table of selectedTables){
-								let li = document.getElementById(table.id);
-								li.style.backgroundColor = ""
-								li.dataset.tableistaken = table.isTaken ? "true" : "false";
-							}
-						})
-						
-		</script>
+{% endblock %}
+{% block javascripts %}
+	<script src="assets/scripts/booking-facility.js"></script>
 {% endblock %}

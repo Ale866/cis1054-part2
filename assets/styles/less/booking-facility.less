@@ -1,45 +1,124 @@
 .wrapper {
-  height: 90%;
   gap: 10px;
-  .select-container {
-    height: 15%;
-  }
-  .container {
-    padding: 20px;
-    background-color: @__white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-auto-columns: 1fr;
-    gap: 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "t1-4 t1-4 t2-4 t2-4 t3-4 t3-4"
-      "t4-4 t4-4 t5-4 t5-4 t6-4 t6-4"
-      "t7-2 t8-2 t9-2 t10-2 t11-2 t12-2"
-      "entrance t13-2 t14-2 t15-2 t16-2 t17-2";
-    width: 60%;
-    height: 90%;
 
-    & > :not(.entrance) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+  #tables-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    gap: 20px;
 
-    & > :not(.entrance)[data-tableIsTaken="false"] {
-      background-color: @__brown;
+    .selected-tables-info {
+      height: 60%;
 
-      &:hover {
-        background-color: lighten(@__brown, 10%);
-        cursor: pointer;
+      & > #selected-tables-list {
+        height: 80%;
+        overflow: auto;
+
+        div {
+          margin: 5px;
+          background-color: @__brown;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          padding: 10px;
+          border-bottom: 1px solid @__black;
+        }
       }
     }
 
-    & > [data-tableIsTaken="true"] {
-      background-color: @__red_light;
-      cursor: not-allowed;
+    #book-btn{
+      width: 50%;
+      height: 40px;
+      background-color: @__black;
+      color: @__white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background-color 0.5s;
+
+      &:hover {
+        background-color: lighten(@__black, 10%);
+      }
+    }
+  }
+
+  #booking-facility-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    width: 75%;
+
+    .container {
+      padding: 20px;
+      background-color: @__white;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-auto-columns: 1fr;
+      gap: 10px;
+      grid-auto-flow: row;
+      grid-template-areas:
+        "t1-4 t1-4 t2-4 t2-4 t3-4 t3-4"
+        "t4-4 t4-4 t5-4 t5-4 t6-4 t6-4"
+        "t7-2 t8-2 t9-2 t10-2 t11-2 t12-2"
+        "entrance t13-2 t14-2 t15-2 t16-2 t17-2";
+      width: 90%;
+      height: 70%;
+
+      & > :not(.entrance) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      & > :not(.entrance)[data-tableIsTaken="false"] {
+        background-color: @__brown;
+
+        &:hover {
+          background-color: lighten(@__brown, 10%);
+          cursor: pointer;
+        }
+      }
+
+      & > [data-tableIsTaken="true"] {
+        background-color: @__red_light;
+        cursor: not-allowed;
+      }
+    }
+
+    .selection-area {
+      color-scheme: dark;
+      & > * {
+        border-radius: 15px;
+        border: none;
+        background-color: @__black;
+        width: 250px;
+        height: 40px;
+        text-align: center;
+        ::-webkit-calendar-picker-indicator {
+          font-size: 24px;
+        }
+      }
+    }
+
+    #selected-tables-list {
+      width: 400px;
+      background-color: @__white;
+      color: @__black;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: row;
+      overflow: scroll;
     }
   }
 
