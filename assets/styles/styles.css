@@ -436,6 +436,7 @@ nav > ul > li form:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 .wrapper #booking-facility-form .container > :not(.entrance)[data-tableIsTaken="false"] {
   background-color: #6f4518;
@@ -525,4 +526,44 @@ nav > ul > li form:hover {
 }
 .wrapper .t15-2 {
   grid-area: t15-2;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    overflow: scroll;
+  }
+  .wrapper #tables-info {
+    width: 100%;
+    height: 50%;
+  }
+  .wrapper #tables-info .selected-tables-info {
+    height: 80%;
+  }
+  .wrapper #tables-info #book-btn {
+    width: 25%;
+    margin-bottom: 10px;
+  }
+  .wrapper #booking-facility-form {
+    width: 100%;
+    height: 75%;
+  }
+  .wrapper #booking-facility-form .selection-area {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .wrapper #booking-facility-form .selection-area > * {
+    width: 50%;
+  }
+  .wrapper #booking-facility-form .container {
+    overflow: auto;
+    max-width: 200%;
+  }
+  .wrapper #booking-facility-form .container > :not(.entrance) {
+    min-width: 120px;
+    min-height: 80px;
+  }
 }

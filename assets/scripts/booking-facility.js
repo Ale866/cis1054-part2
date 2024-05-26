@@ -54,6 +54,7 @@ function createNewSelectedTable(li) {
   removeIcon.setAttribute("title", "remove table");
   removeIcon.addEventListener("click", () => {
     selectedTablesList.removeChild(newTable);
+    handleTableSelection(li);
   });
 
   newTable.appendChild(removeIcon);
@@ -69,7 +70,7 @@ function removeSelectedTable(li) {
 }
 
 document.getElementById("book-btn").addEventListener("click", async (e) => {
-    console.log(bookingDate.value)
+  console.log(bookingDate.value);
   let results = await fetch("booking-facility.php", {
     method: "POST",
     headers: {
