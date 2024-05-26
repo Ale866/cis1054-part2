@@ -2,7 +2,11 @@
 	<div class="img-container h-100 center">
 		<img src="" alt="website_logo"/>
 	</div>
-	<ul class="flex-evenly flex-main-el no-style m-0 p-0 h-100">
+	<div class="togglemenu">
+		<i class="fas fa-bars" title="open-menu" id="toggle-button"></i>
+		<i class="fas fa-times" title="close-menu" id="close-button"></i>
+	</div>
+	<ul id="nav-container" class="nav-container flex-evenly flex-main-el no-style m-0 p-0">
 		<li>
 			<a href="index.php">Home</a>
 		</li>
@@ -31,3 +35,6 @@
 		{% endif %}
 	</ul>
 </nav>
+{% block javascripts %}
+	<script src="assets/scripts/navbar.js"></script>
+{% endblock %}

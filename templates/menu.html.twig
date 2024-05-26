@@ -12,7 +12,7 @@
 			{% for category in categories %}
 				<a class="category-link" data-is-selected="{{category_filter == category.id ? 'true' : 'false'}}" href="/menu?category={{category.id}}">{{ category.name }}</a>
 			{% endfor %}
-		</div>	
+		</div>
 		<div class="menu-items-container">
 			{% for item in menu_items %}
 				<div class="card">
@@ -42,5 +42,5 @@
 	</div>
 {% endblock %}
 {% block javascripts %}
-	 <script src="assets/scripts/menu.js"></script>
+	<script src="assets/scripts/menu.js"></script>
 {% endblock %}

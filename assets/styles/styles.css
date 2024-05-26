@@ -99,6 +99,19 @@ nav {
   background-color: #6f0b17;
   text-transform: uppercase;
 }
+nav > .togglemenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav > .togglemenu > #close-button {
+  display: none;
+}
 nav > .img-container {
   width: 200px;
   background-color: gray;
@@ -107,7 +120,10 @@ nav > .auth-container {
   width: 15%;
   order: 3;
 }
-nav > ul > li {
+nav > .nav-container {
+  height: 100%;
+}
+nav > .nav-container > li {
   height: 100%;
   width: 100%;
   display: flex;
@@ -115,9 +131,9 @@ nav > ul > li {
   justify-content: center;
   text-align: center;
 }
-nav > ul > li a,
-nav > ul > li .logout-btn,
-nav > ul > li form {
+nav > .nav-container > li a,
+nav > .nav-container > li .logout-btn,
+nav > .nav-container > li form {
   color: #fff5e1;
   width: 100%;
   height: 100%;
@@ -125,23 +141,23 @@ nav > ul > li form {
   justify-content: center;
   align-items: center;
 }
-nav > ul > li form,
-nav > ul > li .logout-btn {
+nav > .nav-container > li form,
+nav > .nav-container > li .logout-btn {
   cursor: pointer;
 }
-nav > ul > li > a:hover,
-nav > ul > li .logout-btn:hover,
-nav > ul > li form:hover {
+nav > .nav-container > li > a:hover,
+nav > .nav-container > li .logout-btn:hover,
+nav > .nav-container > li form:hover {
   background-color: #9d1021;
 }
 @media screen and (width <= 768px) {
   nav {
     flex-direction: column;
-    height: unset;
+    height: 10%;
   }
   nav > .img-container {
     width: 200px;
-    height: 70px;
+    height: 100%;
     align-self: center;
     align-items: center;
     order: 2;
@@ -152,14 +168,23 @@ nav > ul > li form:hover {
     left: 0px;
     top: 0px;
     align-self: start;
-    height: 50px;
+    height: 90%;
   }
-  nav > ul {
+  nav > .nav-container {
+    display: none;
     width: 100%;
+    height: 90%;
     flex-direction: column;
     order: 3;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    justify-content: space-around;
+    background-color: #6f0b17;
   }
-  nav > ul > li {
+  nav > .nav-container > li {
     height: 40px;
     width: 100%;
     text-align: center;
@@ -171,6 +196,33 @@ nav > ul > li form:hover {
 }
 .logout-btn {
   all: unset;
+}
+ul.navbar-show {
+  display: flex;
+  opacity: 0;
+  animation: opacity 1s ease-in-out forwards;
+}
+ul.navbar-hide {
+  opacity: 1;
+  animation: aaa 1s ease-in-out forwards;
+}
+@keyframes aaa {
+  0% {
+    opacity: 1;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .menu-items-container {
   display: grid;
