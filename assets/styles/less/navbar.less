@@ -16,6 +16,10 @@ nav {
     & > #close-button {
       display: none;
     }
+
+    & > #open-button {
+      display: none;
+    }
   }
 
   > .img-container {
@@ -77,7 +81,13 @@ nav {
       order: 2;
     }
 
-    & > .auth-container {
+    > .togglemenu {
+      & > #open-button {
+        display: flex;
+      }
+    }
+
+    > .auth-container {
       position: absolute;
       order: 1;
       left: 0px;

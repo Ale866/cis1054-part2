@@ -112,6 +112,9 @@ nav > .togglemenu {
 nav > .togglemenu > #close-button {
   display: none;
 }
+nav > .togglemenu > #open-button {
+  display: none;
+}
 nav > .img-container {
   width: 200px;
   background-color: gray;
@@ -161,6 +164,9 @@ nav > .nav-container > li form:hover {
     align-self: center;
     align-items: center;
     order: 2;
+  }
+  nav > .togglemenu > #open-button {
+    display: flex;
   }
   nav > .auth-container {
     position: absolute;

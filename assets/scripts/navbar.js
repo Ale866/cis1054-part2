@@ -1,4 +1,4 @@
-const toggleButton = document.getElementById("toggle-button");
+const toggleButton = document.getElementById("open-button");
 const closeButton = document.getElementById("close-button");
 const navbar = document.getElementById("nav-container");
 
