@@ -30,6 +30,7 @@
     a {
       color: @__red_light;
     }
+
     .form-group {
       margin: 0 10px;
       padding: 10px;
@@ -81,7 +82,7 @@
       background-color: @__green_light;
       width: 100%;
       display: block;
-    //   margin: 0px auto;
+      //   margin: 0px auto;
       border: none;
       border-radius: 5px;
       font-weight: bold;
@@ -95,6 +96,24 @@
 
     .submit-button:hover {
       background-color: @__green_dark;
+    }
+  }
+}
+
+
+.selection-area {
+  color-scheme: dark;
+
+  &>* {
+    border-radius: 15px;
+    border: none;
+    background-color: @__black;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+
+    ::-webkit-calendar-picker-indicator {
+      font-size: 24px;
     }
   }
 }
