@@ -24,6 +24,9 @@
 		</li>
 		{% if logged %}
 			<li>
+				<a href="favorites.php">Favorites</a>
+			</li>
+			<li>
 				<form method="post" action="logout.php">
 					<button class="logout-btn" type="submit" name="logout">Logout</button>
 				</form>
@@ -36,5 +39,5 @@
 	</ul>
 </nav>
 {% block javascripts %}
-	<script src="assets/scripts/navbar.js"></script>
+	 <script src="assets/scripts/navbar.js"></script>
 {% endblock %}
