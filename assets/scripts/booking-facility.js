@@ -3,6 +3,20 @@ const selectedTablesList = document.getElementById("selected-tables-list");
 let selectedTables = [];
 const bookingDate = document.getElementById("booking-date");
 
+function checkDate(date) {
+  let today = new Date();
+  let bookingDate = new Date(date);
+  return bookingDate.getDate() >= today.getDate();
+}
+
+bookingDate.addEventListener("blur", () => {
+  let date = new Date(bookingDate.value);
+  if (!checkDate(date)) {
+    alert('Insert a future date please.')
+    return;
+  }
+  window.location.href = window.location.pathname + "?date=" + bookingDate.value;
+});
 [...list.children].forEach((li) => {
   li.addEventListener("click", () => {
     handleTableSelection(li);
@@ -76,7 +90,7 @@ document.getElementById("book-btn").addEventListener("click", async (e) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ tables: selectedTables, date: bookingDate }),
+    body: JSON.stringify({ tables: selectedTables, date: bookingDate.value }),
   });
   if (!results.ok) {
     return;

@@ -1,6 +1,7 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}PIZZERIA MAMMAMIA | Book a table{% endblock %}
+{% block title %}PIZZERIA MAMMAMIA | Book a table
+{% endblock %}
 
 {% block content %}
 	<div class="wrapper h-100 flex-between">
@@ -16,12 +17,12 @@
 					{% endfor %}
 				</select>
 
-				<input type="date" id="booking-date" class="booking-date-input" placeholder="Date" min="{{ "now"|date("Y-m-d") }}" max="{{ (now|date_modify('+1 year'))|date('Y-m-d') }}" required>
+				<input type="date" id="booking-date" class="booking-date-input" placeholder="Date" min="{{ "now"|date("Y-m-d") }}" value="{{date}}" max="{{ (now|date_modify('+1 year'))|date('Y-m-d') }}" required>
 
 			</div>
 			<ul class="container" id="tableList">
 				{% for table in tables %}
-					<li id="{{table.id}}" class="t{{table.id}}-{{table.n_person}}" data-tableistaken="{{table.is_taken ? 'true' : 'false'}}">
+					<li id="{{table.id}}" class="t{{table.id}}-{{table.n_person}}" data-tableistaken="{{table.taken ? 'true' : 'false'}}">
 						<div>Table
 							{{table.id}}</div>
 						<div>({{table.n_person}}
@@ -43,5 +44,5 @@
 	</div>
 {% endblock %}
 {% block javascripts %}
-	<script src="assets/scripts/booking-facility.js"></script>
+	 <script src="assets/scripts/booking-facility.js"></script>
 {% endblock %}
