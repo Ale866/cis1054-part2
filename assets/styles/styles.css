@@ -225,17 +225,17 @@ ul.navbar-hide {
     opacity: 1;
   }
 }
-.wrapper > * {
+.about-us-wrapper > * {
   z-index: 2;
 }
-.wrapper .about-us-container {
+.about-us-wrapper .about-us-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   color: #fff5e1;
 }
-.wrapper .about-us-container .text-container {
+.about-us-wrapper .about-us-container .text-container {
   min-height: 450px;
   display: flex;
   flex-direction: column;
@@ -245,28 +245,28 @@ ul.navbar-hide {
   line-height: 1.5;
   text-align: center;
 }
-.wrapper .about-us-container .image-container {
+.about-us-wrapper .about-us-container .image-container {
   width: 300px;
   height: 300px;
 }
-.wrapper .about-us-container .image-container img {
+.about-us-wrapper .about-us-container .image-container img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.wrapper .timetables {
+.about-us-wrapper .timetables {
   width: 70%;
   height: 100%;
 }
-.wrapper .timetables div {
+.about-us-wrapper .timetables div {
   width: 100%;
   height: 100%;
 }
-.wrapper .timetables div li {
+.about-us-wrapper .timetables div li {
   padding: 10px 0px;
   font-size: 18px;
 }
-.wrapper::before {
+.about-us-wrapper::before {
   content: '';
   background-image: url("../img/pizza-background.jpg");
   position: absolute;
