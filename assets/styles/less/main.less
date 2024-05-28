@@ -18,7 +18,7 @@ html {
   // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f0b17", endColorstr="#cf142b", GradientType=1);
 }
 
-i{
+i {
   cursor: pointer;
 }
 
@@ -37,4 +37,17 @@ a {
 
 .alert-danger {
   color: @__red_dark
+}
+
+.like-btn {
+  all: unset;
+
+  .fa-heart {
+    color: @__red_light;
+    font-size: 1.25rem;
+  }
+}
+
+.like-btn:focus {
+  outline: @__red_dark auto 5px;
 }

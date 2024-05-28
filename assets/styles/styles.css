@@ -27,6 +27,16 @@ a {
 .alert-danger {
   color: #6f0b17;
 }
+.like-btn {
+  all: unset;
+}
+.like-btn .fa-heart {
+  color: #cf142b;
+  font-size: 1.25rem;
+}
+.like-btn:focus {
+  outline: #6f0b17 auto 5px;
+}
 .center {
   display: flex;
   align-items: center;
@@ -363,16 +373,6 @@ ul.navbar-hide {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.25rem;
-}
-.menu-items-container .like-btn {
-  all: unset;
-}
-.menu-items-container .like-btn .fa-heart {
-  color: #cf142b;
-  font-size: 1.25rem;
-}
-.menu-items-container .like-btn:focus {
-  outline: #6f0b17 auto 5px;
 }
 .menu-items-container .card-chip {
   padding: 0.25rem;
