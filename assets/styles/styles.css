@@ -235,6 +235,12 @@ ul.navbar-hide {
     opacity: 1;
   }
 }
+.about-us-wrapper {
+  background-image: url("../img/pizza-background.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 90vh;
+}
 .about-us-wrapper > * {
   z-index: 2;
 }
@@ -266,53 +272,40 @@ ul.navbar-hide {
 }
 .about-us-wrapper .timetables {
   width: 70%;
-  height: 100%;
 }
 .about-us-wrapper .timetables div {
   width: 100%;
-  height: 100%;
 }
 .about-us-wrapper .timetables div li {
   padding: 10px 0px;
   font-size: 18px;
 }
-.about-us-wrapper::before {
-  content: '';
-  background-image: url("../img/pizza-background.jpg");
-  position: absolute;
-  width: 100%;
-  height: 90%;
-  background-size: cover;
-  z-index: 1;
-  transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-}
 @media (max-width: 768px) {
-  .wrapper .about-us-container {
+  .about-us-wrapper .about-us-container {
     flex-direction: column;
     padding: 20px;
     font-size: 10px;
   }
-  .wrapper .about-us-container .text-container {
+  .about-us-wrapper .about-us-container .text-container {
     width: 100%;
     margin-bottom: 20px;
     padding: 0;
   }
-  .wrapper .about-us-container .image-container {
+  .about-us-wrapper .about-us-container .image-container {
     width: 200px;
     height: 200px;
   }
-  .wrapper .timetables {
+  .about-us-wrapper .timetables {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
   }
-  .wrapper .timetables div {
+  .about-us-wrapper .timetables div {
     width: 100%;
     border: none;
   }
-  .wrapper .timetables div li {
+  .about-us-wrapper .timetables div li {
     font-size: 14px;
   }
 }
