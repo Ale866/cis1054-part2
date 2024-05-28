@@ -1,0 +1,35 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<div class="h-100 flex-column wrapper">
+		<section class="about-us-container">
+			<div class="text-container flex-evenly h-100">
+				<h1 class="center m-0">Our Story</h1>
+				<div>
+					Pizzeria MammaMia is the delicious creation of Chris Porter, a web development teacher at University of Malta who codes by day and cooks by night. The idea for Pizzeria MammaMia was born out of Chris's love for both coding and cooking. He often jokes that writing the perfect program and making the perfect pizza have a lot in common – both require precision, creativity, and a whole lot of love.
+				</div>
+                </br>
+				<div>
+					By day, Chris teaches the art of programming, and by night, he crafts authentic Italian dishes. At Pizzeria MammaMia, he combines his technical skills with his culinary expertise to create a unique dining experience. Just as he perfects a piece of code, he meticulously prepares each dish, ensuring every bite is a masterpiece.
+				</div>
+                </br>
+				<div>
+					Join us at Pizzeria MammaMia, where technology meets tradition, and savor the passion that Chris pours into every meal.
+				</div>
+			</div>
+			<div class="image-container">
+				<img src="../assets/img/about-us-image.png" alt="love for pizza and code"/>
+			</div>
+		</section>
+		<section class="timetables flex-column center">
+            <div class="center flex-column">
+			    <h2 >Opening Hours</h2>
+                <ul class="no-style p-0">
+                    <li><i class="fas fa-clock"></i> Mon to Thu: 11:00 AM - 10:00 PM</li>
+                    <li><i class="fas fa-clock"></i> Fri and Sat: 11:00 AM - 11:00 PM</li>
+                    <li><i class="fas fa-clock"></i> Sun: 12:00 PM - 9:00 PM</li>
+                </ul>
+            </div>
+		</section>
+	</div>
+{% endblock %}
