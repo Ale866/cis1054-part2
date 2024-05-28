@@ -337,10 +337,12 @@ ul.navbar-hide {
   background-color: #fff5e1;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
-  box-shadow: 0 0 0.5rem 0 rgba(41, 41, 41, 0.9);
+  box-shadow: 0 0 0.9rem 0 rgba(41, 41, 41, 0.9);
+  transition: 0.3s all;
 }
 .menu-items-container .card:hover {
-  box-shadow: 0 0 0.5rem 0 rgba(0, 122, 59, 0.6);
+  box-shadow: 0 0 0.8rem 0 rgba(111, 11, 23, 0.9);
+  transform: scale(1.03);
 }
 .menu-items-container .card-header {
   margin: 0.75rem 0;
