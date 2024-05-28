@@ -1,42 +1,100 @@
-.form-group {
-    // Common styles for form-container class
-    margin: 0 10px;
-    padding: 10px;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 4px 8px #0000001a;
+  color: @__black;
+
+  h1 {
+    text-align: center;
+  }
+
+  .form-body {
+    width: max(40vw, 300px);
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    backdrop-filter: blur(14px);
+    background-color: rgba(@__white, 0.2);
 
     label {
+      color: @__green_dark;
+    }
+
+    input,
+    textarea {
+      background-color: rgba(@__white, 0.2);
+    }
+
+    a {
+      color: @__red_light;
+    }
+    .form-group {
+      margin: 0 10px;
+      padding: 10px;
+
+      label {
         cursor: pointer;
         display: block;
         font-weight: 400;
-    }
+      }
 
-    input {
-        // Styles for input fields
+      input,
+      textarea {
         max-width: 100%;
         width: 100%;
         padding: 10px;
         border-radius: 10px;
         border: none;
         transition: all 0.1s ease-in-out;
-    }
+      }
 
-    input:focus {
+      textarea {
+        min-height: 10vh;
+      }
+
+      input:focus {
         outline: @__green_light;
         border: @__green_light 1px solid;
         box-shadow: 0 0 5px @__green_light;
-    }
+      }
 
-    &.form-error {
+      &.form-error {
         label {
-            color: @__red_dark;
+          color: @__red_dark;
         }
 
-        input {
-            border: 1px @__red_dark solid;
+        input,
+        textarea {
+          border: 1px @__red_dark solid;
         }
 
         input:focus {
-            border: 1px @__red_dark solid;
-            box-shadow: 0 0 5px @__red_dark;
+          border: 1px @__red_dark solid;
+          box-shadow: 0 0 5px @__red_dark;
         }
+      }
     }
+
+    .submit-button {
+      background-color: @__green_light;
+      width: 100%;
+      display: block;
+    //   margin: 0px auto;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      font-family: "Courier New", Courier, monospace;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: @__green_dark;
+    }
+  }
 }

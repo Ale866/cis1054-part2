@@ -1,0 +1,24 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}PIZZERIA MAMMAMIA | Contact Us
+{% endblock %}
+
+{% block content %}
+	<div class="contact-us-wrapper form-container center">
+		<div class="form-body">
+			<h1>PIZZERIA MAMMAMIA</h1>
+			<form method="POST" action="">
+				<div class="form-group">
+					<label for="object">Object</label>
+					<input type="text" id="object" name="object">
+				</div>
+				<div class="form-group">
+					<label for="textarea">Message</label>
+					<textarea id="textarea" name="textarea" required></textarea>
+				</div>
+				<div class="form-group">
+					<button class="submit-button">Send🍕</button>
+				</div>
+			</form>
+		</div>
+	{% endblock %}

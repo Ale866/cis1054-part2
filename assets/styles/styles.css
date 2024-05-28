@@ -306,6 +306,15 @@ ul.navbar-hide {
     font-size: 14px;
   }
 }
+.contact-us-wrapper {
+  background-image: url("../img/pizza-background.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.contact-us-wrapper h1 {
+  color: #fff5e1;
+}
 .menu-items-container {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -411,19 +420,11 @@ ul.navbar-hide {
   }
 }
 .login-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  box-shadow: 0 4px 8px #0000001a;
   background-image: url("/assets/images/pepperoni-pizza.jpg");
   background-size: cover;
-  color: #292929;
+  height: 100vh;
 }
-.login-container h1 {
-  text-align: center;
-}
-.login-container .back-button {
+.back-button {
   color: #cf142b;
   background-color: #292929;
   border: none;
@@ -432,7 +433,17 @@ ul.navbar-hide {
   text-transform: uppercase;
   font-size: 14px;
 }
-.login-form {
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 4px 8px #0000001a;
+  color: #292929;
+}
+.form-container h1 {
+  text-align: center;
+}
+.form-container .form-body {
   width: max(40vw, 300px);
   border-radius: 10px;
   padding: 20px;
@@ -441,20 +452,57 @@ ul.navbar-hide {
   backdrop-filter: blur(14px);
   background-color: rgba(255, 245, 225, 0.2);
 }
-.login-form label {
+.form-container .form-body label {
   color: #007a3b;
 }
-.login-form input {
+.form-container .form-body input,
+.form-container .form-body textarea {
   background-color: rgba(255, 245, 225, 0.2);
 }
-.login-form a {
+.form-container .form-body a {
   color: #cf142b;
 }
-.submit-button {
+.form-container .form-body .form-group {
+  margin: 0 10px;
+  padding: 10px;
+}
+.form-container .form-body .form-group label {
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+}
+.form-container .form-body .form-group input,
+.form-container .form-body .form-group textarea {
+  max-width: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+.form-container .form-body .form-group textarea {
+  min-height: 10vh;
+}
+.form-container .form-body .form-group input:focus {
+  outline: #208320;
+  border: #208320 1px solid;
+  box-shadow: 0 0 5px #208320;
+}
+.form-container .form-body .form-group.form-error label {
+  color: #6f0b17;
+}
+.form-container .form-body .form-group.form-error input,
+.form-container .form-body .form-group.form-error textarea {
+  border: 1px #6f0b17 solid;
+}
+.form-container .form-body .form-group.form-error input:focus {
+  border: 1px #6f0b17 solid;
+  box-shadow: 0 0 5px #6f0b17;
+}
+.form-container .form-body .submit-button {
   background-color: #208320;
   width: 100%;
   display: block;
-  margin: 0px auto;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -465,40 +513,8 @@ ul.navbar-hide {
   text-align: center;
   cursor: pointer;
 }
-.submit-button:hover {
+.form-container .form-body .submit-button:hover {
   background-color: #007a3b;
-}
-.form-group {
-  margin: 0 10px;
-  padding: 10px;
-}
-.form-group label {
-  cursor: pointer;
-  display: block;
-  font-weight: 400;
-}
-.form-group input {
-  max-width: 100%;
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  transition: all 0.1s ease-in-out;
-}
-.form-group input:focus {
-  outline: #208320;
-  border: #208320 1px solid;
-  box-shadow: 0 0 5px #208320;
-}
-.form-group.form-error label {
-  color: #6f0b17;
-}
-.form-group.form-error input {
-  border: 1px #6f0b17 solid;
-}
-.form-group.form-error input:focus {
-  border: 1px #6f0b17 solid;
-  box-shadow: 0 0 5px #6f0b17;
 }
 .wrapper {
   gap: 10px;
