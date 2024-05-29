@@ -5,7 +5,7 @@
 
 {% block content %}
 	<div>
-		<div>
+		<div class="flex-between p-20">
 			<div class="category-selector selection-area">
 				<select class="booking-select" id="category-select">
 					<option value="All">All</option>
@@ -14,7 +14,20 @@
 					{% endfor %}
 				</select>
 			</div>
-			{% block additional_headings %}{% endblock %}
+			{% block additional_headings %}
+				{% if is_admin %}
+					<div>
+						<button>
+							Create Category
+						</button>
+					</div>
+					<div>
+						<button>
+							Create Dish
+						</button>
+					</div>
+				{% endif %}
+			{% endblock %}
 		</div>
 		<div class="menu-items-container">
 			{% for item in menu_items %}
@@ -23,9 +36,11 @@
 						<div class=" card-image">
 							<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
 						</div>
-						<div class="card-header">
+						<div class="card-header flex-between">
 							<h2>{{ item.name }}</h2>
-							<hr/>
+							<button data-id="{{item.id}}" class=" delete-btn">
+								<i class="fa-trash fa-solid" title="Delete {{item.name}}"></i>
+							</button>
 						</div>
 						<div class="card-body">
 							<div class="card-content">
@@ -35,7 +50,7 @@
 							<hr/>
 							<div class="card-footer">
 								<span class="card-chip">{{ item.category }}</span>
-								<button class="like-btn">
+								<button class="like-btn" aria-label="Favorite">
 									<i data-isfavorite="{{item.favorite}}" class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart" id="{{item.id}}"></i>
 								</button>
 							</div>
@@ -45,6 +60,24 @@
 			{% endfor %}
 		</div>
 	</div>
+	{% if is_admin %}
+		<form action="category.php" method="POST">
+			<input type="text" name="category_name" placeholder="Category Name">
+			<button type="submit">Create Category</button>
+		</form>
+		<form action="dish.php" method="POST" enctype="multipart/form-data">
+			<input type="text" name="name" placeholder="Dish Name">
+			<input type="text" name="description" placeholder="Dish Description">
+			<input type="number" min="0" max="1000" name="price" placeholder="Dish Price">
+			<select name="category_id">
+				{% for category in categories %}
+					<option value="{{category.id}}">{{ category.name }}</option>
+				{% endfor %}
+			</select>
+			<input type="file" name="image" accept="image/*">
+			<button type="submit">Create Dish</button>
+		</form>
+	{% endif %}
 {% endblock %}
 {% block javascripts %}
 	 <script src="assets/scripts/menu.js"></script>

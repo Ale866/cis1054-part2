@@ -339,6 +339,21 @@ ul.navbar-hide {
 }
 .menu-items-container .card-header {
   margin: 0.75rem 0;
+  display: flex;
+  align-items: center;
+}
+.menu-items-container .card-header .delete-btn {
+  background-color: #6f0b17;
+  height: 40%;
+  color: #fff5e1;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.menu-items-container .card-header .delete-btn:hover {
+  background-color: #cf142b;
 }
 .menu-items-container .card-header,
 .menu-items-container .card-body {
@@ -384,7 +399,6 @@ ul.navbar-hide {
 }
 .category-selector {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   padding: 0.75rem;
   flex-wrap: wrap;

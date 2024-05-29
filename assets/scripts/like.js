@@ -18,7 +18,9 @@ likeButtons.forEach(button => {
         }
     });
 
-    button.addEventListener('click', async function () {
+    button.addEventListener('click', async function (e) {
+        e.stopPropagation();
+        e.preventDefault();
         const response = await fetch('/like', {
             method: 'POST',
             headers: {
@@ -30,7 +32,6 @@ likeButtons.forEach(button => {
             })
         })
         let content = await response.json()
-        console.log(response, content)
         if (content.liked) {
             this.dataset.isfavorite = 1;
             makeFavorite(this);
