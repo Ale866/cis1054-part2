@@ -23,7 +23,8 @@
     }
 
     input,
-    textarea {
+    textarea,
+    select {
       background-color: rgba(@__white, 0.2);
     }
 
@@ -42,7 +43,8 @@
       }
 
       input,
-      textarea {
+      textarea,
+      select {
         max-width: 100%;
         width: 100%;
         padding: 10px;
@@ -67,7 +69,8 @@
         }
 
         input,
-        textarea {
+        textarea,
+        select {
           border: 1px @__red_dark solid;
         }
 
@@ -77,34 +80,13 @@
         }
       }
     }
-
-    .submit-button {
-      background-color: @__green_light;
-      width: 100%;
-      display: block;
-      //   margin: 0px auto;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 18px;
-      font-family: "Courier New", Courier, monospace;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .submit-button:hover {
-      background-color: @__green_dark;
-    }
   }
 }
-
 
 .selection-area {
   color-scheme: dark;
 
-  &>* {
+  & > * {
     border-radius: 15px;
     border: none;
     background-color: @__black;
@@ -116,4 +98,23 @@
       font-size: 24px;
     }
   }
+}
+
+.submit-button {
+  background-color: @__green_light;
+  width: 100%;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: @__green_dark;
 }
