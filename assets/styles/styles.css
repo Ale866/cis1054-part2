@@ -28,7 +28,7 @@ a {
   color: #6f0b17;
 }
 .like-btn {
-  all: unset;
+  z-index: 1000;
 }
 .like-btn .fa-heart {
   color: #cf142b;
@@ -343,6 +343,7 @@ ul.navbar-hide {
   align-items: center;
 }
 .menu-items-container .card-header .delete-btn {
+  z-index: 1000;
   background-color: #6f0b17;
   height: 40%;
   color: #fff5e1;

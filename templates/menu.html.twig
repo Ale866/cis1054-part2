@@ -34,7 +34,10 @@
 			{% for item in menu_items %}
 				<div class="card" role="listitem">
 					<div class="card-image">
-						<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
+						<figure>
+							<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
+							<figcaption>{{ item.name }}</figcaption>
+						</figure>
 					</div>
 					<div class="card-header flex-between">
 						<h1>{{ item.name }}</h1>
@@ -52,7 +55,7 @@
 						<hr/>
 						<div class="card-footer">
 							<span class="card-chip">{{ item.category }}</span>
-							<button data-isfavorite="{{item.favorite}}" id="{{item.id}}" class="like-btn" aria-label="Favorite">
+							<button data-isfavorite="{{item.favorite}}" id="{{item.id}}" class="like-btn" aria-label="Add {{item.name}} to favorites">
 								<i title="Toggle {{item.name}} favorite." class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart"></i>
 							</button>
 						</div>
