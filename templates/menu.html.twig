@@ -4,10 +4,10 @@
 {% endblock %}
 
 {% block content %}
-	<section>
+	<section class="menu-wrapper">
 		<div class="flex-between p-20">
 			<div class="category-selector selection-area">
-				<label for="category-select">Select Category:</label>
+				<label class="center" for="category-select">Select Category:</label>
 				<select class="booking-select" id="category-select">
 					<option value="All">All</option>
 					{% for category in categories %}
@@ -17,14 +17,14 @@
 			</div>
 			{% block additional_headings %}
 				{% if is_admin %}
-					<div>
-						<button>
-							Create Category
+					<div class="center">
+						<button class="submit-button">
+							<a href="create-category" class="p-10">Create Category</a>
 						</button>
 					</div>
-					<div>
-						<button>
-							Create Dish
+					<div class="center">
+						<button class="submit-button">
+							<a href="create-dish" class="p-10">Create Dish</a>
 						</button>
 					</div>
 				{% endif %}
@@ -34,16 +34,18 @@
 			{% for item in menu_items %}
 				<div class="card" role="listitem">
 					<div class="card-image">
-						<figure>
+						<figure class="m-0">
 							<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
 							<figcaption>{{ item.name }}</figcaption>
 						</figure>
 					</div>
 					<div class="card-header flex-between">
 						<h1>{{ item.name }}</h1>
-						<button data-id="{{item.id}}" class="delete-btn">
-							<i class="fa-trash fa-solid" title="Delete {{item.name}}"></i>
-						</button>
+						{% if is_admin %}
+							<button data-id="{{item.id}}" class="delete-btn">
+								<i class="fa-trash fa-solid" title="Delete {{item.name}}"></i>
+							</button>
+						{% endif %}
 					</div>
 					<div class="card-body">
 						<div class="card-content">
@@ -64,26 +66,9 @@
 			{% endfor %}
 		</div>
 	</section>
-	{% if is_admin %}
-		<form action="category.php" method="POST">
-			<input type="text" name="category_name" placeholder="Category Name">
-			<button type="submit">Create Category</button>
-		</form>
-		<form action="dish.php" method="POST" enctype="multipart/form-data">
-			<input type="text" name="name" placeholder="Dish Name">
-			<input type="text" name="description" placeholder="Dish Description">
-			<input type="number" min="0" max="1000" name="price" placeholder="Dish Price">
-			<select name="category_id">
-				{% for category in categories %}
-					<option value="{{category.id}}">{{ category.name }}</option>
-				{% endfor %}
-			</select>
-			<input type="file" name="image" accept="image/*">
-			<button type="submit">Create Dish</button>
-		</form>
-	{% endif %}
 {% endblock %}
 {% block javascripts %}
-	 <script src="assets/scripts/menu.js"></script>
-	 <script src="assets/scripts/like.js"></script>{% block additional_scripts %}
-{% endblock %}{% endblock %}
+	<script src="assets/scripts/menu.js"></script>
+	<script src="assets/scripts/like.js"></script>
+	{% block additional_scripts %}{% endblock %}
+{% endblock %}
