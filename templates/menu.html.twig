@@ -4,9 +4,10 @@
 {% endblock %}
 
 {% block content %}
-	<div>
+	<section>
 		<div class="flex-between p-20">
 			<div class="category-selector selection-area">
+				<label for="category-select">Select Category:</label>
 				<select class="booking-select" id="category-select">
 					<option value="All">All</option>
 					{% for category in categories %}
@@ -29,37 +30,37 @@
 				{% endif %}
 			{% endblock %}
 		</div>
-		<div class="menu-items-container">
+		<div class="menu-items-container" role="list">
 			{% for item in menu_items %}
-				<div class="card">
-					<a href="dish-detail?dish_id={{item.id}}">
-						<div class=" card-image">
-							<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
+				<div class="card" role="listitem">
+					<div class="card-image">
+						<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
+					</div>
+					<div class="card-header flex-between">
+						<h1>{{ item.name }}</h1>
+						<button data-id="{{item.id}}" class="delete-btn">
+							<i class="fa-trash fa-solid" title="Delete {{item.name}}"></i>
+						</button>
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<p>{{ item.description }}</p>
+							<p class="price">{{ item.price }}</p>
+							<a href="dish-detail?dish_id={{item.id}}">{{item.name}}
+								details</a>
 						</div>
-						<div class="card-header flex-between">
-							<h2>{{ item.name }}</h2>
-							<button data-id="{{item.id}}" class=" delete-btn">
-								<i class="fa-trash fa-solid" title="Delete {{item.name}}"></i>
+						<hr/>
+						<div class="card-footer">
+							<span class="card-chip">{{ item.category }}</span>
+							<button data-isfavorite="{{item.favorite}}" id="{{item.id}}" class="like-btn" aria-label="Favorite">
+								<i title="Toggle {{item.name}} favorite." class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart"></i>
 							</button>
 						</div>
-						<div class="card-body">
-							<div class="card-content">
-								<p>{{ item.description }}</p>
-								<p class="price">{{ item.price }}</p>
-							</div>
-							<hr/>
-							<div class="card-footer">
-								<span class="card-chip">{{ item.category }}</span>
-								<button class="like-btn" aria-label="Favorite">
-									<i data-isfavorite="{{item.favorite}}" class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart" id="{{item.id}}"></i>
-								</button>
-							</div>
-						</div>
-					</a>
+					</div>
 				</div>
 			{% endfor %}
 		</div>
-	</div>
+	</section>
 	{% if is_admin %}
 		<form action="category.php" method="POST">
 			<input type="text" name="category_name" placeholder="Category Name">
