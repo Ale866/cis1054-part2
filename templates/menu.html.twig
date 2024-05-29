@@ -51,8 +51,10 @@
 						<div class="card-content">
 							<p>{{ item.description }}</p>
 							<p class="price">{{ item.price }}</p>
-							<a href="dish-detail?dish_id={{item.id}}">{{item.name}}
-								details</a>
+							<a class="details-link" href="dish-detail?dish_id={{item.id}}">
+								Go to {{item.name}} details
+								<i class="fa-chevron-right fa-solid" title="go to {{item.name}} details"></i>
+							</a>
 						</div>
 						<hr/>
 						<div class="card-footer">
