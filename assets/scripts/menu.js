@@ -6,3 +6,19 @@ categorySelect.addEventListener('change', function () {
         window.location.href = window.location.pathname + `?category=${this.value}`
     }
 });
+
+const deleteButtons = document.querySelectorAll('.delete-btn')
+
+deleteButtons.forEach(button => {
+    button.addEventListener('click', async function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        const id = this.getAttribute('data-id')
+        result = await fetch(`dish.php?dish_id=${id}`, {
+            method: 'DELETE'
+        })
+        if (result.ok) {
+            window.location.reload()
+        }
+    })
+})

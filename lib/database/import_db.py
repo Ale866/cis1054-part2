@@ -32,7 +32,7 @@ def import_db():
     c = conn.cursor()
 
     # Get all the sql files in the sql directory
-    sql_files = [f for f in os.listdir(DDL_PATH) if f.endswith('.sql')]
+    sql_files = sorted([f for f in os.listdir(DDL_PATH) if f.endswith('.sql')])
 
     # Import each sql file into the database
     for sql_file in sql_files:

@@ -3,12 +3,14 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-	<html>
-	<!--<![endif]-->
-		<head>
-		<meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<html
+	lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>
-			{% block title %}PIZZERIA MAMMAMIA{% endblock %}
+			{% block title %}PIZZERIA MAMMAMIA
+			{% endblock %}
 		</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,18 +22,17 @@
 	</head>
 	<body>
 		<!--[if lt IE 7]>
-																												            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-																												        <![endif]-->
+																																		            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+																																		        <![endif]-->
 
 		{% block navbar %}
 			{% include 'navbar.html.twig' %}
 		{% endblock %}
 
-		<div class="app-container"> {% block content %}{% endblock %}
+		<main class="app-container"> {% block content %}{% endblock %}
 
-			</div>
-			<script src="" async defer></script>
-			<script src="https://kit.fontawesome.com/8f43b5766f.js" crossorigin="anonymous"></script>
+			</main>
+			 <script src="https://kit.fontawesome.com/8f43b5766f.js" crossorigin="anonymous"></script>
 			{% block javascripts %}{% endblock %}
 		</body>
 	</html>

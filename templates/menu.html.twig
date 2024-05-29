@@ -4,9 +4,10 @@
 {% endblock %}
 
 {% block content %}
-	<div>
-		<div>
+	<section>
+		<div class="flex-between p-20">
 			<div class="category-selector selection-area">
+				<label for="category-select">Select Category:</label>
 				<select class="booking-select" id="category-select">
 					<option value="All">All</option>
 					{% for category in categories %}
@@ -14,37 +15,73 @@
 					{% endfor %}
 				</select>
 			</div>
-			{% block additional_headings %}{% endblock %}
+			{% block additional_headings %}
+				{% if is_admin %}
+					<div>
+						<button>
+							Create Category
+						</button>
+					</div>
+					<div>
+						<button>
+							Create Dish
+						</button>
+					</div>
+				{% endif %}
+			{% endblock %}
 		</div>
-		<div class="menu-items-container">
+		<div class="menu-items-container" role="list">
 			{% for item in menu_items %}
-				<div class="card">
-					<a href="dish-detail?dish_id={{item.id}}">
-						<div class=" card-image">
+				<div class="card" role="listitem">
+					<div class="card-image">
+						<figure>
 							<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
+							<figcaption>{{ item.name }}</figcaption>
+						</figure>
+					</div>
+					<div class="card-header flex-between">
+						<h1>{{ item.name }}</h1>
+						<button data-id="{{item.id}}" class="delete-btn">
+							<i class="fa-trash fa-solid" title="Delete {{item.name}}"></i>
+						</button>
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<p>{{ item.description }}</p>
+							<p class="price">{{ item.price }}</p>
+							<a href="dish-detail?dish_id={{item.id}}">{{item.name}}
+								details</a>
 						</div>
-						<div class="card-header">
-							<h2>{{ item.name }}</h2>
-							<hr/>
+						<hr/>
+						<div class="card-footer">
+							<span class="card-chip">{{ item.category }}</span>
+							<button data-isfavorite="{{item.favorite}}" id="{{item.id}}" class="like-btn" aria-label="Add {{item.name}} to favorites">
+								<i title="Toggle {{item.name}} favorite." class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart"></i>
+							</button>
 						</div>
-						<div class="card-body">
-							<div class="card-content">
-								<p>{{ item.description }}</p>
-								<p class="price">{{ item.price }}</p>
-							</div>
-							<hr/>
-							<div class="card-footer">
-								<span class="card-chip">{{ item.category }}</span>
-								<button class="like-btn">
-									<i data-isfavorite="{{item.favorite}}" class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart" id="{{item.id}}"></i>
-								</button>
-							</div>
-						</div>
-					</a>
+					</div>
 				</div>
 			{% endfor %}
 		</div>
-	</div>
+	</section>
+	{% if is_admin %}
+		<form action="category.php" method="POST">
+			<input type="text" name="category_name" placeholder="Category Name">
+			<button type="submit">Create Category</button>
+		</form>
+		<form action="dish.php" method="POST" enctype="multipart/form-data">
+			<input type="text" name="name" placeholder="Dish Name">
+			<input type="text" name="description" placeholder="Dish Description">
+			<input type="number" min="0" max="1000" name="price" placeholder="Dish Price">
+			<select name="category_id">
+				{% for category in categories %}
+					<option value="{{category.id}}">{{ category.name }}</option>
+				{% endfor %}
+			</select>
+			<input type="file" name="image" accept="image/*">
+			<button type="submit">Create Dish</button>
+		</form>
+	{% endif %}
 {% endblock %}
 {% block javascripts %}
 	 <script src="assets/scripts/menu.js"></script>
