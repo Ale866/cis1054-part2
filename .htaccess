@@ -1,6 +1,7 @@
 Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
+ErrorDocument 404 /404.php
 
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteCond %{REQUEST_URI} !/$
