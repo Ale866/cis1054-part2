@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div class="dish-details-container" style="background-image:url('assets/{{ dish.image }}" alt="{{ dish.name }}')">
+		<div class="detail-header center">
+			<h1 class="m-0">{{ dish.name }}</h1>
+			<button class="like-btn">
+				<i data-isfavorite="{{dish.favorite}}" class="{% if dish.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart" id="{{dish.id}}"></i>
+			</button>
+			<span class="card-chip">{{ dish.category }}</span>
+		</div>
+		<div class="detail-body flex-column center">
+			<div class="description p-10">{{ dish.description }}</div>
+			<div class="price center">${{ dish.price }}</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="assets/scripts/like.js"></script>
+{% endblock %}

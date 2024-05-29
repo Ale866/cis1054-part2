@@ -15,4 +15,4 @@ $db = new Database();
 
 $dish = (new Dish($db))->getDish($_GET['dish_id']);
 
-echo $twig->render('dish_detail.html.twig', ['dish' => $dish]);
+echo $twig->render('dish-detail.html.twig', ['dish' => $dish]);
