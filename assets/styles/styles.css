@@ -29,6 +29,7 @@ a {
 }
 .like-btn {
   z-index: 1000;
+  all: unset;
 }
 .like-btn .fa-heart {
   color: #cf142b;
