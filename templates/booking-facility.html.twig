@@ -17,8 +17,12 @@
 					{% endfor %}
 				</select>
 
-				<input type="date" id="booking-date" class="booking-date-input" placeholder="Date" min="{{ "now"|date("Y-m-d") }}" value="{{date}}" max="{{ (now|date_modify('+1 year'))|date('Y-m-d') }}" required>
-
+				<select id="booking-date" class="booking-date-input">
+					{% for i in 0..6 %}
+						{% set currentDate = date|date_modify('+' ~ i ~ ' day') %}
+						<option value="{{ currentDate|date('Y-m-d') }}">{{ currentDate|date('Y-m-d') }}</option>
+					{% endfor %}
+				</select>
 			</div>
 			<ul class="container" id="tableList">
 				{% for table in tables %}

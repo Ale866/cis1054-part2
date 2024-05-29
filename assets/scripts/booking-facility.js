@@ -3,20 +3,6 @@ const selectedTablesList = document.getElementById("selected-tables-list");
 let selectedTables = [];
 const bookingDate = document.getElementById("booking-date");
 
-function checkDate(date) {
-  let today = new Date();
-  let bookingDate = new Date(date);
-  return bookingDate.getDate() >= today.getDate();
-}
-
-bookingDate.addEventListener("blur", () => {
-  let date = new Date(bookingDate.value);
-  if (!checkDate(date)) {
-    alert('Insert a future date please.')
-    return;
-  }
-  window.location.href = window.location.pathname + "?date=" + bookingDate.value;
-});
 [...list.children].forEach((li) => {
   li.addEventListener("click", () => {
     handleTableSelection(li);
@@ -84,7 +70,6 @@ function removeSelectedTable(li) {
 }
 
 document.getElementById("book-btn").addEventListener("click", async (e) => {
-  console.log(bookingDate.value);
   let results = await fetch("booking-facility.php", {
     method: "POST",
     headers: {
