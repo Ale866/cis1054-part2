@@ -47,10 +47,10 @@ INSERT INTO
 VALUES
     (
         4,
-        'Penne Norcina',
-        '/images/norcina.jpg',
+        'Pasta Amatriciana',
+        '/images/amatriciana_pasta.jpg',
         12.99,
-        'Classic pasta with cream, salsiccia toscana, and parmesan.',
+        'Classic pasta with tomato sauce, guanciale, and pecorino romano.',
         1
     ),
     (
@@ -84,25 +84,25 @@ VALUES
     (
         7,
         'Pepperoni Pizza',
-        '/images/pepperoni-pizza.jpg',
+        '/images/pepperoni_pizza.jpg',
         14.99,
         'Classic pizza with tomato sauce, mozzarella cheese, and pepperoni slices.',
         2
     ),
     (
         8,
-        'Quattro Stagioni Pizza',
-        '/images/quattro_stagioni_pizza.jpg',
+        'Mushroom Pizza',
+        '/images/mushroom_pizza.jpg',
         16.99,
-        'Pizza divided into four sections, each with different toppings representing the four seasons.',
+        'Pizza with mozzarella cheese and mushrooms.',
         2
     ),
     (
         9,
-        'Prosciutto e Funghi Pizza',
-        '/images/prosciutto_funghi_pizza.jpg',
+        'Pizza Margerita',
+        '/images/margherita_pizza.jpg',
         15.99,
-        'Pizza topped with tomato sauce, mozzarella cheese, prosciutto, and mushrooms.',
+        'Classic italian pizza with mozzarella cheese, tomato sauce, and basil.',
         2
     );
 
