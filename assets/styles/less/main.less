@@ -10,19 +10,24 @@ html {
 }
 
 .app-container {
-  height: 90%;
+  // height: 90%;
+  min-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: unset;
   background-image: url("../images/pizza-background.jpg");
   background-size: cover;
   background-position: center center;
-  min-height: 90vh;
   // background: rgb(111, 11, 23);
   // background: -moz-radial-gradient(circle, rgba(111, 11, 23, 1) 0%, rgba(207, 20, 43, 1) 100%);
   // background: -webkit-radial-gradient(circle, rgba(111, 11, 23, 1) 0%, rgba(207, 20, 43, 1) 100%);
   // background: radial-gradient(circle, rgba(111, 11, 23, 1) 0%, rgba(207, 20, 43, 1) 100%);
   // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f0b17", endColorstr="#cf142b", GradientType=1);
 }
-
-.home-image-container{
+.home-image-container {
+  width: 100vw;
+  height: 90vh;
   background-color: @__black;
 }
 
@@ -44,7 +49,7 @@ a {
 }
 
 .alert-danger {
-  color: @__red_dark
+  color: @__red_dark;
 }
 
 .like-btn {
