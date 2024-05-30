@@ -34,8 +34,20 @@ class Dish
         ])->first();
     }
 
-    public function create(string $name, string $price, string $category_id, string $description, array $image): void
+    public function create(string $name, string $price, string $category_id, string $description, array $image): array
     {
+        $errors = [];
+        $errors['name'] = $this->validate_name($name);
+        $errors['price'] = $this->validate_price($price);
+        $errors['category_id'] = $this->validate_category($category_id);
+        $errors['description'] = $this->validate_description($description);
+        $errors['image'] = $this->validate_image($image);
+        $errors = array_filter($errors);
+        if (!empty($errors)) {
+            return $errors;
+        }
+
+
         $query = "INSERT INTO menu (name, price, category_id, description, image_path) VALUES (:name, :price, :category_id, :description, :image_path)";
         $this->db->query($query, [
             ['name' => ':name', 'value' => $name, 'type' => SQLITE3_TEXT],
@@ -44,6 +56,7 @@ class Dish
             ['name' => ':description', 'value' => $description, 'type' => SQLITE3_TEXT],
             ['name' => ':image_path', 'value' => $this->uploadImage($image), 'type' => SQLITE3_TEXT]
         ]);
+        return [];
     }
 
     private function uploadImage($image)
@@ -64,5 +77,58 @@ class Dish
         $this->db->query($query, [
             ['name' => ':id', 'value' => $dish_id, 'type' => SQLITE3_INTEGER]
         ]);
+    }
+
+    private function validate_name(string $name): string
+    {
+        if ($name == null) {
+            return 'Name is required';
+        }
+        return '';
+    }
+
+    private function validate_price(string $price): string
+    {
+        if ($price == null) {
+            return 'Price is required';
+        }
+        if ($price < 0) {
+            return 'Price must be greater than 0';
+        }
+        return '';
+    }
+
+    private function validate_category(string $category_id): string
+    {
+
+        if ($category_id == null) {
+            return 'Category is required';
+        }
+        $categories = $this->db->query("SELECT id FROM categories")->fetchAll();
+        $categories = array_map(fn ($category) => $category['id'], $categories);
+        if (!in_array($category_id, $categories)) {
+            return  'Invalid category';
+        }
+        return '';
+    }
+
+    private function validate_description(string $description): string
+    {
+        if ($description == null) {
+            return 'Description is required';
+        }
+        return '';
+    }
+
+    private function validate_image(array $image): string
+    {
+        if ($image['error'] !== 0) {
+            return  'Image is required';
+        }
+        $imageFileType = strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
+        if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+            return  'Only JPG, JPEG, PNG files are allowed';
+        }
+        return '';
     }
 }
