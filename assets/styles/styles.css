@@ -614,16 +614,7 @@ nav > .nav-container > li form:hover {
 .login-container {
   background-image: url("/assets/images/pepperoni-pizza.jpg");
   background-size: cover;
-  height: 100vh;
-}
-.back-button {
-  color: #cf142b;
-  background-color: #120904;
-  border: none;
-  margin: 20px;
-  position: absolute;
-  text-transform: uppercase;
-  font-size: 14px;
+  height: 100%;
 }
 .fav-container {
   display: flex;
