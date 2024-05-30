@@ -21,7 +21,6 @@ select.addEventListener("change", () => {
   const li = document.getElementById(selectedOption);
   if (selectedOption == 0) return;
   handleTableSelection(li);
-  select.selectedIndex = 0;
 });
 
 function handleTableSelection(li) {
@@ -53,6 +52,7 @@ function createNewSelectedTable(li) {
   const newTable = document.createElement("div");
   newTable.setAttribute("id", "selected-table-" + li.id);
   newTable.innerHTML = li.innerText;
+  newTable.setAttribute("role", "listitem");
 
   const removeIcon = document.createElement("i");
   removeIcon.classList.add("fas", "fa-times");

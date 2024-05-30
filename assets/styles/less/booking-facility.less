@@ -17,7 +17,7 @@
 
       & > #selected-tables-list {
         height: 80%;
-        // overflow: auto;
+        overflow: auto;
 
         div {
           margin: 5px;
@@ -35,7 +35,7 @@
     #book-btn {
       width: 50%;
       height: 40px;
-      background-color: @__black;
+      background-color: @__red_dark;
       color: @__white;
       border: none;
       border-radius: 15px;
@@ -43,7 +43,7 @@
       transition: background-color 0.5s;
 
       &:hover {
-        background-color: lighten(@__black, 10%);
+        background-color: @__red_light;
       }
     }
   }
@@ -108,17 +108,6 @@
         height: 40px;
         text-align: center;
       }
-    }
-
-    #selected-tables-list {
-      width: 400px;
-      background-color: @__white;
-      color: @__black;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-direction: row;
-      // overflow: scroll;
     }
   }
 
@@ -209,7 +198,6 @@
 
       #book-btn {
         width: 25%;
-        margin-bottom: 10px;
       }
     }
 

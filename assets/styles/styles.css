@@ -317,15 +317,6 @@ ul.navbar-hide {
     font-size: 14px;
   }
 }
-.contact-us-wrapper {
-  background-image: url("../img/pizza-background.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-.contact-us-wrapper h1 {
-  color: #fff5e1;
-}
 .menu-wrapper {
   background-color: #120904;
 }
@@ -495,20 +486,6 @@ ul.navbar-hide {
   width: 60px;
   height: 60px;
 }
-.login-container {
-  background-image: url("/assets/images/pepperoni-pizza.jpg");
-  background-size: cover;
-  height: 100vh;
-}
-.back-button {
-  color: #cf142b;
-  background-color: #120904;
-  border: none;
-  margin: 20px;
-  position: absolute;
-  text-transform: uppercase;
-  font-size: 14px;
-}
 .form-container {
   display: flex;
   flex-direction: column;
@@ -609,6 +586,20 @@ ul.navbar-hide {
 .submit-button:hover {
   background-color: #007a3b;
 }
+.login-container {
+  background-image: url("/assets/images/pepperoni-pizza.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+.back-button {
+  color: #cf142b;
+  background-color: #120904;
+  border: none;
+  margin: 20px;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 14px;
+}
 .not-found-container {
   display: flex;
   justify-content: center;
@@ -644,6 +635,7 @@ ul.navbar-hide {
 }
 .wrapper #tables-info .selected-tables-info > #selected-tables-list {
   height: 80%;
+  overflow: auto;
 }
 .wrapper #tables-info .selected-tables-info > #selected-tables-list div {
   margin: 5px;
@@ -658,7 +650,7 @@ ul.navbar-hide {
 .wrapper #tables-info #book-btn {
   width: 50%;
   height: 40px;
-  background-color: #120904;
+  background-color: #6f0b17;
   color: #fff5e1;
   border: none;
   border-radius: 15px;
@@ -666,7 +658,7 @@ ul.navbar-hide {
   transition: background-color 0.5s;
 }
 .wrapper #tables-info #book-btn:hover {
-  background-color: #3c1e0d;
+  background-color: #cf142b;
 }
 .wrapper #booking-facility-form {
   display: flex;
@@ -718,15 +710,6 @@ ul.navbar-hide {
   width: 250px;
   height: 40px;
   text-align: center;
-}
-.wrapper #booking-facility-form #selected-tables-list {
-  width: 400px;
-  background-color: #fff5e1;
-  color: #120904;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
 }
 .wrapper .t1-4 {
   grid-area: t1-4;
@@ -796,7 +779,6 @@ ul.navbar-hide {
   }
   .wrapper #tables-info #book-btn {
     width: 25%;
-    margin-bottom: 10px;
   }
   .wrapper #booking-facility-form {
     width: 100%;

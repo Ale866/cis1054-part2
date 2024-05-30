@@ -1,13 +1,14 @@
 {% extends 'menu.html.twig' %}
 {% block additional_headings %}
-	<div class="">
+	<div class="center">
 		<form method="POST" action="/favorites">
-			<input type="email" name="email" placeholder="Enter your friend's email address">
-
-			<button>Send Email</button>
+			<div class="form-group">
+				<input type="email" name="email" placeholder="Enter your friend's email address">
+				<button class="submit-button">Send Email</button>
+			</div>
 		</form>
 	</div>
 {% endblock %}
 {% block additional_scripts %}
-	 <script src="assets/scripts/favorites.js"></script>
+	<script src="assets/scripts/favorites.js"></script>
 {% endblock %}
