@@ -3,8 +3,9 @@ require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/database/database.php';
 
 $database = new Database();
-$user_id = $_SESSION['user_id'] ?? 'NULL';
-$category_filter = $_GET['category'] ?? null;
+$user_id = !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 'NULL';
+
+$category_filter = isset($_GET['category']) ? $_GET['category'] : null;
 $query = "SELECT 
     m.id,
     m.name,
@@ -21,7 +22,7 @@ $params = [
     ['name' => 'user_id', 'value' => $user_id, 'type' => SQLITE3_INTEGER]
 ];
 
-if ($category_filter) {
+if ($category_filter !== null) {
     if ($category_filter === 'favorites') {
         $query .= " WHERE f.id IS NOT NULL";
     } else {
