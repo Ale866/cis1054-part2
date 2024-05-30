@@ -1,10 +1,10 @@
 <?php
 
-require_once './bootstrap.php';
-require_once './middleware/authenticated.php';
+require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../middleware/authenticated.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once './database/database.php';
+    require_once __DIR__ . '/../database/database.php';
     $database = new Database();
     $input = json_decode(file_get_contents('php://input'), true);
     if (!isset($input['menu_id'])) {
