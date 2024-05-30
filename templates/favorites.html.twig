@@ -1,9 +1,12 @@
 {% extends 'menu.html.twig' %}
 {% block additional_headings %}
-	<div class="center">
-		<form method="POST" action="/favorites">
-			<div class="form-group">
-				<input type="email" name="email" placeholder="Enter your friend's email address">
+	<div class="fav-container">
+		<form class="flex-evenly h-100" method="POST" action="/favorites">
+			<div class="fav-form-group form-group center 	h-100">
+				<label for="friend-email">Friend's Email:</label>
+				<input class="w-100" type="email" name="email" placeholder="Enter your friend's email address">
+			</div>
+			<div class="form-group self-center center h-100">
 				<button class="submit-button">Send Email</button>
 			</div>
 		</form>

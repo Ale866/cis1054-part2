@@ -94,7 +94,7 @@
     .card-chip {
       padding: 0.25rem;
       text-transform: uppercase;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       background-color: @__green_dark;
       color: @__white;
       border-radius: 0.5rem;
@@ -146,5 +146,11 @@
     .menu-items-container {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
   }
 }

@@ -6,7 +6,7 @@
 {% block content %}
 	<section class="menu-wrapper">
 		<header class="flex-between p-20">
-			<div class="category-selector selection-area">
+			<div class="category-selector self-center selection-area">
 				<label class="center" for="category-select">Select Category:</label>
 				<select class="booking-select" id="category-select">
 					<option value="All">All</option>
@@ -17,12 +17,12 @@
 			</div>
 			{% block additional_headings %}
 				{% if is_admin %}
-					<div class="center">
+					<div class="center self-center m-10">
 						<button class="submit-button">
 							<a href="category" class="p-10">Create Category</a>
 						</button>
 					</div>
-					<div class="center">
+					<div class="center self-center m-10">
 						<button class="submit-button">
 							<a href="dish" class="p-10">Create Dish</a>
 						</button>
