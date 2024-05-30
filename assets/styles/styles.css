@@ -302,6 +302,13 @@ nav > .nav-container > li form:hover {
   padding: 10px 0px;
   font-size: 18px;
 }
+.location-link {
+  color: #007a3b;
+  text-decoration: underline;
+}
+.location-link:hover {
+  color: #208320;
+}
 @media (max-width: 768px) {
   .about-us-wrapper .about-us-container {
     flex-direction: column;
