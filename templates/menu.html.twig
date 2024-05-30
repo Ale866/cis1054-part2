@@ -5,7 +5,7 @@
 
 {% block content %}
 	<section class="menu-wrapper">
-		<div class="flex-between p-20">
+		<header class="flex-between p-20">
 			<div class="category-selector selection-area">
 				<label class="center" for="category-select">Select Category:</label>
 				<select class="booking-select" id="category-select">
@@ -29,10 +29,10 @@
 					</div>
 				{% endif %}
 			{% endblock %}
-		</div>
-		<div class="menu-items-container" role="list">
+		</header>
+		<section class="menu-items-container" role="list">
 			{% for item in menu_items %}
-				<div class="card" role="listitem">
+				<article class="card" role="listitem">
 					<div class="card-image">
 						<figure class="m-0">
 							<img src="assets/{{ item.image }}" alt="{{ item.name }} image">
@@ -51,25 +51,31 @@
 							<p>{{ item.description }}</p>
 							<p class="price">{{ item.price }}</p>
 							<a class="details-link" href="dish-detail?dish_id={{item.id}}">
-								Go to {{item.name}} details
+								Go to
+								{{item.name}}
+								details
 								<i class="fa-chevron-right fa-solid" title="go to {{item.name}} details"></i>
 							</a>
 						</div>
 						<hr/>
 						<div class="card-footer">
 							<span class="card-chip">{{ item.category }}</span>
-							<button data-isfavorite="{{item.favorite}}" id="{{item.id}}" class="like-btn" aria-label="Add {{item.name}} to favorites">
-								<i title="Toggle {{item.name}} favorite." class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart"></i>
-							</button>
+							{% if logged %}
+								<button data-isfavorite="{{item.favorite}}" id="{{item.id}}" class="like-btn" aria-label="Add {{item.name}} to favorites">
+									<i title="Toggle {{item.name}} favorite." class="{% if item.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart"></i>
+								</button>
+							{% endif %}
 						</div>
 					</div>
-				</div>
+				</article>
 			{% endfor %}
-		</div>
+		</section>
 	</section>
 {% endblock %}
 {% block javascripts %}
-	<script src="assets/scripts/menu.js"></script>
-	<script src="assets/scripts/like.js"></script>
+	 <script src="assets/scripts/menu.js"></script>
+	{% if logged %}
+		 <script src="assets/scripts/like.js"></script>
+	{% endif %}
 	{% block additional_scripts %}{% endblock %}
 {% endblock %}
