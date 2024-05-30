@@ -168,8 +168,9 @@ nav > .nav-container > li form:hover {
 @media screen and (width <= 768px) {
   nav {
     flex-direction: column;
-    height: max(60px, 10%);
-    position: fixed;
+    height: 10%;
+    min-height: 65px;
+    position: sticky;
     top: 0px;
     left: 0;
     right: 0;
@@ -200,7 +201,7 @@ nav > .nav-container > li form:hover {
     flex-direction: column;
     order: 3;
     position: fixed;
-    top: 60px;
+    top: 65px;
     left: 0;
     right: 0;
     z-index: 9999;

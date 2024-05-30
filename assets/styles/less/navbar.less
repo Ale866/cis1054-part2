@@ -4,7 +4,7 @@ nav {
   text-transform: uppercase;
 
   & > .togglemenu {
-    position: absolute;  
+    position: absolute;
     right: 0;
     width: 50px;
     height: 10%;
@@ -70,8 +70,9 @@ nav {
 @media screen and (width <=768px) {
   nav {
     flex-direction: column;
-    height: max(60px, 10%);
-    position: fixed;
+    height: 10%;
+    min-height: 65px;
+    position: sticky;
     top: 0px;
     left: 0;
     right: 0;
@@ -107,7 +108,7 @@ nav {
       flex-direction: column;
       order: 3;
       position: fixed;
-      top: 60px;
+      top: 65px;
       left: 0;
       right: 0;
       z-index: 9999;
@@ -125,22 +126,21 @@ nav {
       }
     }
   }
+  ul.navbar-show {
+    display: flex;
+    opacity: 0;
+    animation: opacity 1s ease-in-out forwards;
+  }
+
+  ul.navbar-hide {
+    // display: none;
+    opacity: 1;
+    animation: aaa 1s ease-in-out forwards;
+  }
 }
 
 .logout-btn {
   all: unset;
-}
-
-ul.navbar-show {
-  display: flex;
-  opacity: 0;
-  animation: opacity 1s ease-in-out forwards;
-}
-
-ul.navbar-hide {
-  // display: none;
-  opacity: 1;
-  animation: aaa 1s ease-in-out forwards;
 }
 
 @keyframes aaa {

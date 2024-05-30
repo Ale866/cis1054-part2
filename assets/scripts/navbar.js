@@ -1,19 +1,21 @@
 const toggleButton = document.getElementById("open-button");
 const closeButton = document.getElementById("close-button");
-const navbar = document.getElementById("nav-container");
+const navContainer = document.getElementById("nav-container");
+const navbar = document.getElementById("navbar");
 
 toggleButton.addEventListener("click", () => {
-    // navbar.style.display = "flex";
-    navbar.classList.add("navbar-show");
-    navbar.classList.remove("navbar-hide");
+    navContainer.classList.add("navbar-show");
+    navContainer.classList.remove("navbar-hide");
+    navbar.style.position = "fixed";
     toggleButton.style.display = "none";
     closeButton.style.display = "block";
 });
 
 closeButton.addEventListener("click", () => {
-    // navbar.style.display = "none";
-    navbar.classList.remove("navbar-show");
-    navbar.classList.add("navbar-hide");
+
+    navContainer.classList.remove("navbar-show");
+    navContainer.classList.add("navbar-hide");
+    navbar.style.position = "relative";
     toggleButton.style.display = "block";
     closeButton.style.display = "none";
 });
