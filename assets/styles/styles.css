@@ -377,6 +377,7 @@ nav > .nav-container > li form:hover {
 }
 .menu-wrapper .menu-items-container .card-content {
   margin: 0.75rem 0;
+  text-overflow: ellipsis;
 }
 .menu-wrapper .menu-items-container .card-content .details-link {
   color: #007a3b;
