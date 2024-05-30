@@ -1,4 +1,4 @@
-Options +FollowSymLinks -MultiViews
+Options -Indexes +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 ErrorDocument 404 /404.php
