@@ -259,7 +259,6 @@ nav > .nav-container > li form:hover {
   }
 }
 .about-us-wrapper {
-  background-image: url("../images/pizza-background.jpg");
   background-size: cover;
   background-position: center center;
   min-height: 90vh;
@@ -612,7 +611,6 @@ nav > .nav-container > li form:hover {
   background-color: #007a3b;
 }
 .login-container {
-  background-image: url("/assets/images/pepperoni-pizza.jpg");
   background-size: cover;
   height: 100%;
 }
