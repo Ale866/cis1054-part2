@@ -10,7 +10,7 @@
 			<form method="POST" action="register.php">
 				<div class="form-group {% if errors['email'] %} form-error {% endif %}">
 					<label for="email">Email</label>
-					<input class="" type="text" id="email" name="email" value="{{email}}" required>
+					<input class="" type="email" id="email" name="email" value="{{email}}" required>
 					{% include 'error.html.twig' with {field: 'email'} %}
 				</div>
 				<div class="form-group {% if errors['email'] %} form-error {% endif %}">

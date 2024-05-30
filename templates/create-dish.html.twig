@@ -11,22 +11,22 @@
 			<form action="dish.php" method="POST" enctype="multipart/form-data">
 				<div class="form-group {% if errors['name'] %} form-error {% endif %}">
 					<label for="name">Dish Name</label>
-					<input type="text" name="name" value="{{old.name}}" placeholder="DishName">
+					<input type="text" required name="name" value="{{old.name}}" placeholder="DishName">
 					{% include 'error.html.twig' with {field: 'name'} %}
 				</div>
 				<div class="form-group {% if errors['description'] %} form-error {% endif %}">
 					<label for="description">Dish Description</label>
-					<input type="text" name="description" value="{{old.description}}" placeholder="Dish Description">
+					<input type="text" required name="description" value="{{old.description}}" placeholder="Dish Description">
 					{% include 'error.html.twig' with {field: 'description'} %}
 				</div>
 				<div class="form-group {% if errors['price'] %} form-error {% endif %}">
 					<label for="price">Dish Price</label>
-					<input type="number" min="0" max="1000" name="price" value="{{old.price}}" placeholder="Dish Price">
+					<input type="number" required min="0" max="1000" name="price" value="{{old.price}}" placeholder="Dish Price">
 					{% include 'error.html.twig' with {field: 'price'} %}
 				</div>
 				<div class="form-group {% if errors['category_id'] %} form-error {% endif %}">
 					<label for="category_id">Select Category:</label>
-					<select name="category_id">
+					<select required name="category_id">
 						<option value="0">
 							Select a category -----</option>
 						{% for category in categories %}
@@ -37,7 +37,7 @@
 				</div>
 				<div class="form-group {% if errors['image'] %} form-error {% endif %}">
 					<label for="image">Dish Image</label>
-					<input type="file" name="image" accept="image/*">
+					<input required type="file" name="image" accept="image/*">
 					{% include 'error.html.twig' with {field: 'image'} %}
 				</div>
 				<div class="form-group">

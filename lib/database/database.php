@@ -70,4 +70,9 @@ class Database
         $this->db->close();
         return null;
     }
+
+    public function lastInsertedId(): int
+    {
+        return $this->db->lastInsertRowID();
+    }
 }

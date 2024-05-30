@@ -28,9 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $db->query($query, [
         ['name' => ':category', 'value' => $category, 'type' => SQLITE3_TEXT]
     ]);
-    header('Location: /menu');
+    http_response_code(303);
+    header("Location: /menu");
     exit;
 }
-http_response_code(405);
 header('Location: /menu');
 exit;

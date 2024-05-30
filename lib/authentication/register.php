@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/login.php';
+require_once __DIR__ . '/../helpers/utils.php';
 
 class Register
 {
@@ -22,6 +23,13 @@ class Register
         return count($result) > 0;
     }
 
+    private function validate_email($email): bool
+    {
+        $email = clean_input($_POST["email"]);
+        //FILTER_VALIDATE_EMAIL is one of many validation filters: https://www.php.net/manual/en/filter.filters.validate.php
+        return !filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
     private function check_invalid_password($password): bool
     {
         return strlen($password) < 8;
@@ -33,6 +41,14 @@ class Register
 
         if ($this->check_duplicate_email($email)) {
             $errors['email'] = 'Email already exists';
+        }
+
+        if ($this->validate_email($email)) {
+            if (!isset($errors['email'])) {
+                $errors['email'] = 'Invalid email';
+            } else {
+                $errors['email'] = 'And it\'s invalid';
+            }
         }
 
         if ($this->check_invalid_password($password)) {

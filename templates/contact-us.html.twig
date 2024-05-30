@@ -7,14 +7,21 @@
 	<div class="contact-us-wrapper h-100 form-container center">
 		<div class="form-body">
 			<h1>PIZZERIA MAMMAMIA</h1>
-			<form method="POST" action="">
-				<div class="form-group">
-					<label for="object">Object</label>
-					<input type="text" id="object" name="object">
+			<form method="POST" action="/contact-us.php">
+				<div class="form-group {% if errors.email %} form-error {% endif %}">
+					<label for="email">Sender Email</label>
+					<input type="email" id="email" name="email" required>
+					{% include 'error.html.twig' with {'field': 'email'} %}
 				</div>
-				<div class="form-group">
+				<div class="form-group {% if errors.object %} form-error {% endif %}">
+					<label for="object">Object</label>
+					<input type="text" id="object" name="object" required>
+					{% include 'error.html.twig' with {'field': 'object'} %}
+				</div>
+				<div class="form-group {% if errors.message %} form-error {% endif %}">
 					<label for="textarea">Message</label>
-					<textarea id="textarea" name="textarea" required></textarea>
+					<textarea id="textarea" name="message" required></textarea>
+					{% include 'error.html.twig' with {'field': 'message'} %}
 				</div>
 				<div class="form-group">
 					<button class="submit-button">Send🍕</button>

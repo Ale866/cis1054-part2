@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         echo $twig->render('create-dish.html.twig', ['errors' => $errors, 'categories' => $categories, 'old' => ['name' => $name, 'price' => $price, 'category_id' => $category, 'description' => $description]]);
         exit;
     }
-    header('Location: /menu');
+    http_response_code(303);
+    header('Location: /dish-detail.php?dish_id=' . $db->lastInsertedId());
     exit;
 } else if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
     $id = $_GET['dish_id'];
@@ -36,6 +37,5 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     exit;
 }
 
-http_response_code(405);
 header('Location: /menu.php');
 exit;
