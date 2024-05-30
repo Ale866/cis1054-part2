@@ -11,6 +11,11 @@ const bookingDate = document.getElementById("booking-date");
 
 const select = document.getElementById("booking-select");
 
+bookingDate.addEventListener("change", () => {
+  window.location.href =
+    window.location.pathname + "?date=" + bookingDate.value;
+});
+
 select.addEventListener("change", () => {
   const selectedOption = select.value;
   const li = document.getElementById(selectedOption);
@@ -86,4 +91,7 @@ document.getElementById("book-btn").addEventListener("click", async (e) => {
     li.style.backgroundColor = "";
     li.dataset.tableistaken = table.isTaken ? "true" : "false";
   }
+
+  window.location.href =
+    window.location.pathname + "?date=" + bookingDate.value;
 });

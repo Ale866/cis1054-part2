@@ -7,21 +7,25 @@
 	<div class="wrapper h-100 flex-between">
 		<div id="booking-facility-form" class="center w-100 h-75">
 			<div class="selection-area w-100 flex-evenly">
-				<label for="booking-select">Select Table:</label>
+				<label class="center" for="booking-select">Select Table:</label>
 				<select class="booking-select" id="booking-select">
 					<option value="0">----- Select a table -----</option>
 					{% for table in tables %}
-						<option value="{{table.id}}">Table number
-							{{table.id}}
-							({{table.n_person}}
-							people)</option>
+						{% if not table.taken %}
+							<option value="{{ table.id }}">Table number
+								{{ table.id }}
+								({{ table.n_person }}
+								people)</option>
+						{% endif %}
 					{% endfor %}
 				</select>
 
-				<select id="booking-date" class="booking-date-input">
+				<label class="center" for="booking-date">Select Date:
+				</label>
+				<select id="booking-date" name="booking-date" class="booking-date-input">
 					{% for i in 0..6 %}
-						{% set currentDate = date|date_modify('+' ~ i ~ ' day') %}
-						<option value="{{ currentDate|date('Y-m-d') }}">{{ currentDate|date('Y-m-d') }}</option>
+						{% set currentDate = date().modify('+' ~ i ~ ' day') %}
+						<option value="{{ currentDate|date('Y-m-d') }}" {% if currentDate|date('Y-m-d') == date %} selected {% endif %}>{{ currentDate|date('Y-m-d') }}</option>
 					{% endfor %}
 				</select>
 			</div>
@@ -49,5 +53,5 @@
 	</div>
 {% endblock %}
 {% block javascripts %}
-	 <script src="assets/scripts/booking-facility.js"></script>
+	<script src="assets/scripts/booking-facility.js"></script>
 {% endblock %}
