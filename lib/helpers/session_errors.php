@@ -14,3 +14,8 @@ function flash_error(string $key, string $error)
     }
     $_SESSION['errors'][$key] = $error;
 }
+
+function get_errors(): array
+{
+    return $_SESSION['errors'] ?? [];
+}
