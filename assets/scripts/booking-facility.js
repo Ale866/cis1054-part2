@@ -54,7 +54,10 @@ function createNewSelectedTable(li) {
   newTable.innerHTML = li.innerText;
   newTable.setAttribute("role", "listitem");
 
+  const removeButton = document.createElement("button");
   const removeIcon = document.createElement("i");
+  removeButton.appendChild(removeIcon);
+  removeButton.setAttribute("aria-label", "remove table " + li.innerText);
   removeIcon.classList.add("fas", "fa-times");
   removeIcon.setAttribute("title", "remove table");
   removeIcon.addEventListener("click", () => {
@@ -62,7 +65,7 @@ function createNewSelectedTable(li) {
     handleTableSelection(li);
   });
 
-  newTable.appendChild(removeIcon);
+  newTable.appendChild(removeButton);
   selectedTablesList.appendChild(newTable);
 }
 
@@ -81,15 +84,15 @@ document.getElementById("book-btn").addEventListener("click", async (e) => {
   });
 });
 
-function post(path, params, method = 'post') {
-  const form = document.createElement('form');
+function post(path, params, method = "post") {
+  const form = document.createElement("form");
   form.method = method;
   form.action = path;
 
   for (const key in params) {
     if (params.hasOwnProperty(key)) {
-      const hiddenField = document.createElement('input');
-      hiddenField.type = 'hidden';
+      const hiddenField = document.createElement("input");
+      hiddenField.type = "hidden";
       hiddenField.name = key;
       hiddenField.value = params[key];
 

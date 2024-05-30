@@ -10,7 +10,7 @@
 			<div class="selection-area w-100 flex-evenly">
 				<label class="center" for="booking-select">Select Table:</label>
 				<select class="booking-select" id="booking-select">
-					<option value="0">----- Select a table -----</option>
+					<option value="0">Select a table</option>
 					{% for table in tables %}
 						{% if not table.taken %}
 							<option value="{{ table.id }}">Table number
@@ -48,12 +48,12 @@
 				<small>Click on the
 					<i class="fas fa-times" title="remove table"></i>
 					to remove the table from the list</small>
-				<div id="selected-tables-list" role="list"></div>
+				<ul class="m-0 p-0" id="selected-tables-list"></div>
+				<button id="book-btn">Book!</button>
 			</div>
-			<button id="book-btn">Book!</button>
 		</aside>
 	</div>
 {% endblock %}
 {% block javascripts %}
-	 <script src="assets/scripts/booking-facility.js"></script>
+	<script src="assets/scripts/booking-facility.js"></script>
 {% endblock %}

@@ -189,6 +189,10 @@ nav > .nav-container > li form:hover {
     align-items: center;
     order: 2;
   }
+  nav > .togglemenu * {
+    background: none;
+    border: none;
+  }
   nav > .togglemenu > #open-button {
     display: flex;
   }
@@ -458,6 +462,9 @@ nav > .nav-container > li form:hover {
   header {
     flex-direction: column;
   }
+  .menu-wrapper .category-selector {
+    display: block;
+  }
 }
 .dish-details-container {
   height: 100%;
@@ -683,6 +690,10 @@ nav > .nav-container > li form:hover {
 .wrapper #tables-info .selected-tables-info > #selected-tables-list {
   height: 80%;
   overflow: auto;
+}
+.wrapper #tables-info .selected-tables-info > #selected-tables-list button {
+  background: none;
+  border: none;
 }
 .wrapper #tables-info .selected-tables-info > #selected-tables-list div {
   margin: 5px;

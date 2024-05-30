@@ -3,8 +3,12 @@
 		<img class="h-100 w-100" src="/assets/images/pizzeria-logo.png" alt="website_logo"/>
 	</div>
 	<div class="togglemenu">
-		<i class="fas fa-bars" title="open-menu" id="open-button" tabindex="0"></i>
-		<i class="fas fa-times" title="close-menu" id="close-button" tabindex="1"></i>
+		<button id="open-button" aria-label="Open menu">
+			<i class="fas fa-bars" title="open-menu" tabindex="0"></i>
+		</button>
+		<button id="close-button" aria-label="Close menu">
+			<i class="fas fa-times" title="close-menu" tabindex="1"></i>
+		</button>
 	</div>
 	<ul id="nav-container" class="nav-container flex-evenly flex-main-el no-style m-0 p-0">
 		<li>
@@ -39,5 +43,5 @@
 	</ul>
 </nav>
 {% block javascripts %}
-	 <script src="assets/scripts/navbar.js"></script>
+	<script src="assets/scripts/navbar.js"></script>
 {% endblock %}
