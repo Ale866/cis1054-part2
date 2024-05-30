@@ -10,17 +10,17 @@
 			<form method="POST" action="/contact-us.php">
 				<div class="form-group {% if errors.email %} form-error {% endif %}">
 					<label for="email">Sender Email</label>
-					<input type="email" id="email" name="email" required>
+					<input type="email" id="email" name="email" required {% if errors.email %} aria-describedby="error-email" aria-invalid="true" {% endif %}>
 					{% include 'error.html.twig' with {'field': 'email'} %}
 				</div>
 				<div class="form-group {% if errors.object %} form-error {% endif %}">
 					<label for="object">Object</label>
-					<input type="text" id="object" name="object" required>
+					<input type="text" id="object" name="object" required {% if errors.object %} aria-describedby="error-object" aria-invalid="true" {% endif %}>
 					{% include 'error.html.twig' with {'field': 'object'} %}
 				</div>
 				<div class="form-group {% if errors.message %} form-error {% endif %}">
 					<label for="textarea">Message</label>
-					<textarea id="textarea" name="message" required></textarea>
+					<textarea id="textarea" name="message" required {% if errors.message %} aria-describedby="error-message" aria-invalid="true" {% endif %}></textarea>
 					{% include 'error.html.twig' with {'field': 'message'} %}
 				</div>
 				<div class="form-group">
