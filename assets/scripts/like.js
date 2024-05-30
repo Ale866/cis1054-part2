@@ -24,7 +24,7 @@ likeButtons.forEach(button => {
         e.preventDefault();
 
         this.setAttribute('aria-busy', 'true');
-        const response = await fetch('/like', {
+        const response = await fetch('/api/like.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
