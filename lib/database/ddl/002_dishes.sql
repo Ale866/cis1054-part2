@@ -104,6 +104,14 @@ VALUES
         15.99,
         'Savor the simplicity and elegance of our Pizza Margherita, featuring a perfectly baked crust topped with fresh mozzarella cheese, a rich tomato sauce, and fragrant basil leaves. This classic Italian pizza is a testament to the beauty of fresh, high-quality ingredients and traditional preparation methods.',
         2
+    ),
+    (
+        16,
+        'Pizza Jeeeeeez',
+        '/images/dishes/pizza-jeez.jpg',
+        150,
+        "Introducing the 'Pizza Jeeeeez', a slice of joy dedicated to our beloved professor's iconic exclamation! This special pizza is a harmonious blend of classic and unique flavors that will leave you saying 'jeeeez' with every bite. Topped with a rich tomato sauce and a generous layer of gooey mozzarella cheese, it's the perfect tribute to those unforgettable classroom moments. Whether you're celebrating a hard-earned A or just enjoying a study break, the Pizza Jeeeeez is your go-to choice for a taste of academic nostalgia and deliciousness.",
+        2
     );
 
 -- Second Dishes
