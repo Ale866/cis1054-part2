@@ -2,5 +2,4 @@ vendor
 cache
 .env
 lib/database/database.sqlite
-assets/images/custom_dishes
 assets/images/custom_dishes/*
