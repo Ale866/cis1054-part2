@@ -17,11 +17,6 @@
       transition: 0.3s all;
     }
 
-    .card:hover {
-      box-shadow: 0 0 0.8rem 0 rgba(@__red_dark, 0.9);
-      transform: scale(1.03);
-    }
-
     .card-header {
       // background-color: #f8f9fa; border-bottom: 1px solid #f8f9fa;
       margin: 0.75rem 0;
@@ -77,6 +72,9 @@
         font-size: 1rem;
         font-weight: 400;
         color: @__black;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .price {
@@ -95,6 +93,8 @@
 
     .card-chip {
       padding: 0.25rem;
+      text-transform: uppercase;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       background-color: @__green_dark;
       color: @__white;
       border-radius: 0.5rem;
