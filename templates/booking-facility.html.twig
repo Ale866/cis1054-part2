@@ -6,6 +6,7 @@
 {% block content %}
 	<div class="wrapper h-100 flex-between">
 		<div id="booking-facility-form" class="center w-100 h-75">
+			{% include 'error.html.twig' with {field: 'email'} %}
 			<div class="selection-area w-100 flex-evenly">
 				<label class="center" for="booking-select">Select Table:</label>
 				<select class="booking-select" id="booking-select">
@@ -19,6 +20,7 @@
 						{% endif %}
 					{% endfor %}
 				</select>
+				{% include 'error.html.twig' with {field: 'tables'} %}
 
 				<label class="center" for="booking-date">Select Date:
 				</label>
@@ -53,5 +55,5 @@
 	</div>
 {% endblock %}
 {% block javascripts %}
-	<script src="assets/scripts/booking-facility.js"></script>
+	 <script src="assets/scripts/booking-facility.js"></script>
 {% endblock %}

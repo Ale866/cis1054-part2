@@ -21,22 +21,30 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         ]
     )->fetchAll();
 
-    echo $twig->render('booking-facility.html.twig', ['tables' => $tables, 'date' => $date]);
+    echo $twig->render('booking-facility.html.twig', ['tables' => $tables, 'date' => $date, 'errors' => $_SESSION['errors'] ?? []]);
+    unset($_SESSION['errors']);
 } elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $input = json_decode(file_get_contents('php://input'), true);
-    $input['date'] = isset($input['date']) ? date('Y-m-d', strtotime($input['date'])) : date('Y-m-d');
-    if (!isset($input['tables'])) {
-        http_response_code(422);
-        echo "Missing menu_id field";
+    if (!isset($_SESSION['user_id'])) {
+        http_response_code(302);
+        header('Location: /login.php');
         exit;
     }
-    $tables = $input['tables'];
+
+
+    $tables = json_decode($_POST['tables'] ?? [], true);
+    $date =  isset($_POST['date']) ? date('Y-m-d', strtotime($_POST['date'])) : date('Y-m-d');;
+    if (empty($tables)) {
+        //http_response_code(422);
+        $_SESSION['errors']['tables'] = 'Missing tables';
+        header("Location: /booking-facility.php?date=$date");
+        exit;
+    }
 
     foreach ($tables as $table) {
         // add admin check 
         $db->query('INSERT INTO bookings(table_id, user_id, date) VALUES (:table_id, :user_id, :date)', [
             ['name' => 'table_id', 'value' => $table['id'], 'type' => SQLITE3_INTEGER],
-            ['name' => 'date', 'value' => $input['date'], 'type' => SQLITE3_TEXT],
+            ['name' => 'date', 'value' => $date, 'type' => SQLITE3_TEXT],
             ['name' => 'user_id', 'value' => $_SESSION['user_id'], 'type' => SQLITE3_INTEGER]
         ]);
     }
@@ -48,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         return $table['id'];
     }, $tables));
     // Recipient
-    $phpmailer->Body = "You have booked tables $tables for the day {$input['date']} at Pizzeria Mammamia.";
+    $phpmailer->Body = "You have booked tables $tables for the day $date at Pizzeria Mammamia.";
     $phpmailer->Subject = 'Booking Confirmation - Pizzeria Mammamia';
 
     // Sender information
@@ -57,10 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $phpmailer->addAddress($user['email']);
     // Attempt to send the ephpmailer
     if (!$phpmailer->send()) {
-        echo 'Email not sent. An error was encountered: ' . $phpmailer->ErrorInfo;
-    } else {
-        echo 'Message has been sent.';
+        $_SESSION['errors']['email'] = 'Email could not be sent';
     }
+
+    header("Location: /booking-facility.php?date=$date");
+    unset($_SESSION['errors']);
 
     $phpmailer->smtpClose();
 }
