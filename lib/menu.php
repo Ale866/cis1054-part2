@@ -16,7 +16,8 @@ $query = "SELECT
     IIF(f.id IS NOT NULL, 1,0) as favorite
     FROM menu m 
     INNER JOIN categories c ON m.category_id = c.id
-    LEFT JOIN favorites f ON f.menu_id = m.id AND f.user_id = :user_id";
+    LEFT JOIN favorites f ON f.menu_id = m.id AND f.user_id = :user_id
+    ORDER BY category_id";
 
 $params = [
     ['name' => 'user_id', 'value' => $user_id, 'type' => SQLITE3_INTEGER]
