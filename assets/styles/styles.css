@@ -10,7 +10,7 @@ html {
 }
 .app-container {
   height: 90%;
-  background-image: url("../img/pizza-background.jpg");
+  background-image: url("../images/pizza-background.jpg");
   background-size: cover;
   background-position: center center;
   min-height: 90vh;
@@ -217,18 +217,18 @@ nav > .nav-container > li form:hover {
     align-items: center;
     font-size: 18px;
   }
+  ul.navbar-show {
+    display: flex;
+    opacity: 0;
+    animation: opacity 1s ease-in-out forwards;
+  }
+  ul.navbar-hide {
+    opacity: 1;
+    animation: aaa 1s ease-in-out forwards;
+  }
 }
 .logout-btn {
   all: unset;
-}
-ul.navbar-show {
-  display: flex;
-  opacity: 0;
-  animation: opacity 1s ease-in-out forwards;
-}
-ul.navbar-hide {
-  opacity: 1;
-  animation: aaa 1s ease-in-out forwards;
 }
 @keyframes aaa {
   0% {
@@ -249,7 +249,7 @@ ul.navbar-hide {
   }
 }
 .about-us-wrapper {
-  background-image: url("../img/pizza-background.jpg");
+  background-image: url("../images/pizza-background.jpg");
   background-size: cover;
   background-position: center center;
   min-height: 90vh;
