@@ -17,7 +17,7 @@ $query = "SELECT
     FROM menu m 
     INNER JOIN categories c ON m.category_id = c.id
     LEFT JOIN favorites f ON f.menu_id = m.id AND f.user_id = :user_id
-    ORDER BY category_id";
+    ";
 
 $params = [
     ['name' => 'user_id', 'value' => $user_id, 'type' => SQLITE3_INTEGER]
@@ -31,6 +31,7 @@ if ($category_filter !== null) {
         $params[] = ['name' => 'category', 'value' => $category_filter, 'type' => SQLITE3_INTEGER];
     }
 }
+$query .= " ORDER BY m.category_id";
 
 $menu_items = $database->query($query, $params)->fetchAll();
 
