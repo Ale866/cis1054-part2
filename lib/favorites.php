@@ -29,14 +29,6 @@ function fetchDishes($database, $user_id, $category = false)
     $menu_items = $database->query($query, $params)->fetchAll();
     return $menu_items;
 }
-function getLoggedUser()
-{
-    return [
-        'id' => 1,
-        'email' => 'dimarcogiuseppe04@gmail.com',
-        'name' => 'Giuseppe Di Marco'
-    ];
-}
 
 $database = new Database();
 $user_id = $_SESSION['user_id'] ?? 'NULL';
@@ -50,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $dishes = fetchDishes($database, $_SESSION['user_id']);
 
-    $loggedUser = getLoggedUser();
     $phpmailer = Mail::getPhpMailer();
-    $phpmailer->Body = "Hello, $email! Here are the dishes that $loggedUser[name] has saved as favorites:\n\n";
+    $phpmailer->Body = "Hello, $email! Here are the dishes that {$_SESSION['email']} has saved as favorites:\n\n";
     $phpmailer->Body .= implode("\n", array_map(function ($dish) {
         return "$dish[name] - $dish[price]€";
     }, $dishes));
