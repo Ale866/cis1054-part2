@@ -34,35 +34,35 @@ class Database
         return $this;
     }
 
-    public function fetchOne($type = SQLITE3_ASSOC): array
+    public function fetch_one($type = SQLITE3_ASSOC): array
     {
-        if ($this->checkResult()) {
+        if ($this->check_result()) {
             throw new Exception("No result to fetch");
         }
         $row = $this->result->fetchArray($type);
         return $row !== false ? $row : [];
     }
 
-    public function fetchAll(): array
+    public function fetch_all(): array
     {
         $results = [];
-        while ($result = $this->fetchOne()) {
+        while ($result = $this->fetch_one()) {
             $results[] = $result;
         }
         return $results;
     }
 
-    private function checkResult(): bool
+    private function check_result(): bool
     {
         return $this->result == null || $this->result->numColumns() == 0;
     }
 
     public function first(): array
     {
-        if ($this->checkResult()) {
+        if ($this->check_result()) {
             throw new Exception("No result to fetch");
         }
-        return $this->fetchOne();
+        return $this->fetch_one();
     }
 
     public function close(): null
@@ -71,7 +71,7 @@ class Database
         return null;
     }
 
-    public function lastInsertedId(): int
+    public function last_inserted_id(): int
     {
         return $this->db->lastInsertRowID();
     }

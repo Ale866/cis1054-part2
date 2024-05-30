@@ -18,7 +18,7 @@ class Register
 
         $result = $this->db->query($query, [
             ['name' => ':email', 'value' => $email, 'type' => SQLITE3_TEXT]
-        ])->fetchAll();
+        ])->fetch_all();
 
         return count($result) > 0;
     }

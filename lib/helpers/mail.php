@@ -6,7 +6,7 @@ require_once __DIR__ . '/../bootstrap.php';
 
 class Mail
 {
-    public static function getPhpMailer()
+    public static function get_php_mailer()
     {
         $phpmailer = new PHPMailer();
         $phpmailer->isSMTP();

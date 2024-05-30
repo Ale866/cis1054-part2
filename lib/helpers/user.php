@@ -11,7 +11,7 @@ class User
         $this->db = $db;
     }
 
-    public function getLoggedUser()
+    public function get_logged_user()
     {
         $user_id = $_SESSION['user_id'];
 

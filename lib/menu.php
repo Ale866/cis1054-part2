@@ -33,8 +33,8 @@ if ($category_filter !== null) {
 }
 $query .= " ORDER BY m.category_id";
 
-$menu_items = $database->query($query, $params)->fetchAll();
+$menu_items = $database->query($query, $params)->fetch_all();
 
-$categories = $database->query("SELECT * FROM categories")->fetchAll();
+$categories = $database->query("SELECT * FROM categories")->fetch_all();
 
 echo $twig->render('menu.html.twig', ['menu_items' => $menu_items, 'categories' => $categories, 'category_filter' => $category_filter ?? '']);

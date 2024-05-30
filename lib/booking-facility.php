@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         [
             ['name' => 'date', 'value' => $date, 'type' => SQLITE3_TEXT]
         ]
-    )->fetchAll();
+    )->fetch_all();
 
     echo $twig->render('booking-facility.html.twig', ['tables' => $tables, 'date' => $date, 'errors' => $_SESSION['errors'] ?? []]);
     unset($_SESSION['errors']);
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         ]);
     }
 
-    $phpmailer = Mail::getPhpMailer();
+    $phpmailer = Mail::get_php_mailer();
 
     // Content
     $tables = implode(", ", array_map(function ($table) {
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     // Sender information
     $phpmailer->setFrom('pizzeriamammamia1054@gmail.com', 'PIZZERIA MAMMAMIA');
-    $user = (new User($db))->getLoggedUser();
+    $user = (new User($db))->get_logged_user();
     $phpmailer->addAddress($user['email']);
     // Attempt to send the ephpmailer
     if (!$phpmailer->send()) {

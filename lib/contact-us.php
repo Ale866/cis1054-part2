@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = $_POST['message'];
     $message = clean_input($message);
 
-    $mail = (new Mail())->getPhpMailer();
+    $mail = (new Mail())->get_php_mailer();
     $mail->Body = $message . "\n\n" . $email . ' is the sender of this message';
     $mail->Subject = $object;
     $mail->addAddress('pizzeriamammamia1054@gmail.com');

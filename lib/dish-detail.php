@@ -13,6 +13,6 @@ if (!isset($_GET['dish_id'])) {
 }
 $db = new Database();
 
-$dish = (new Dish($db))->getDish($_GET['dish_id']);
+$dish = (new Dish($db))->get_dish($_GET['dish_id']);
 
 echo $twig->render('dish-detail.html.twig', ['dish' => $dish]);

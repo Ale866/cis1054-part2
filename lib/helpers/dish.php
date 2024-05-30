@@ -12,7 +12,7 @@ class Dish
         $this->db = $db;
     }
 
-    public function getDish(string $dish_id): array
+    public function get_dish(string $dish_id): array
     {
         $user_id = $_SESSION['user_id'] ?? null;
         $query = "SELECT 
@@ -54,12 +54,12 @@ class Dish
             ['name' => ':price', 'value' => $price, 'type' => SQLITE3_TEXT],
             ['name' => ':category_id', 'value' => $category_id, 'type' => SQLITE3_INTEGER],
             ['name' => ':description', 'value' => $description, 'type' => SQLITE3_TEXT],
-            ['name' => ':image_path', 'value' => $this->uploadImage($image), 'type' => SQLITE3_TEXT]
+            ['name' => ':image_path', 'value' => $this->upload_image($image), 'type' => SQLITE3_TEXT]
         ]);
         return [];
     }
 
-    private function uploadImage($image)
+    private function upload_image($image)
     {
         $target_dir = __DIR__ . '/../../assets/images/custom_dishes/';
         $target_file = $target_dir . basename($image['name']);
@@ -69,7 +69,7 @@ class Dish
 
     public function delete($dish_id): void
     {
-        $dish = $this->getDish($dish_id);
+        $dish = $this->get_dish($dish_id);
         if ($dish['image'] !== 'images/custom_dishes/default.jpg') {
             unlink(__DIR__ . '/../../assets/' . $dish['image']);
         }
@@ -104,7 +104,7 @@ class Dish
         if ($category_id == null) {
             return 'Category is required';
         }
-        $categories = $this->db->query("SELECT id FROM categories")->fetchAll();
+        $categories = $this->db->query("SELECT id FROM categories")->fetch_all();
         $categories = array_map(fn ($category) => $category['id'], $categories);
         if (!in_array($category_id, $categories)) {
             return  'Invalid category';

@@ -4,7 +4,7 @@ require_once __DIR__ . '/database/database.php';
 require_once __DIR__ . '/middleware/authenticated.php';
 require_once __DIR__ . '/helpers/mail.php';
 
-function fetchDishes($database, $user_id, $category = false)
+function fetch_dishes($database, $user_id, $category = false)
 {
     $query = "SELECT 
     m.id,
@@ -26,7 +26,7 @@ function fetchDishes($database, $user_id, $category = false)
         $params[] = ['name' => 'category', 'value' => $category, 'type' => SQLITE3_INTEGER];
     }
 
-    $menu_items = $database->query($query, $params)->fetchAll();
+    $menu_items = $database->query($query, $params)->fetch_all();
     return $menu_items;
 }
 
@@ -40,9 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         exit();
     }
 
-    $dishes = fetchDishes($database, $_SESSION['user_id']);
+    $dishes = fetch_dishes($database, $_SESSION['user_id']);
 
-    $phpmailer = Mail::getPhpMailer();
+    $phpmailer = Mail::get_php_mailer();
     $phpmailer->Body = "Hello, $email! Here are the dishes that {$_SESSION['email']} has saved as favorites:\n\n";
     $phpmailer->Body .= implode("\n", array_map(function ($dish) {
         return "$dish[name] - $dish[price]€";
@@ -64,8 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 $category_filter = $_GET['category'] ?? null;
 
-$menu_items = fetchDishes($database, $user_id, $category_filter);
+$menu_items = fetch_dishes($database, $user_id, $category_filter);
 
-$categories = $database->query("SELECT * FROM categories")->fetchAll();
+$categories = $database->query("SELECT * FROM categories")->fetch_all();
 
 echo $twig->render('favorites.html.twig', ['menu_items' => $menu_items, 'categories' => $categories, 'category_filter' => $category_filter ?? '']);
