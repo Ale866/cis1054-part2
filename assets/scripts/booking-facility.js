@@ -75,23 +75,28 @@ function removeSelectedTable(li) {
 }
 
 document.getElementById("book-btn").addEventListener("click", async (e) => {
-  let results = await fetch("booking-facility.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ tables: selectedTables, date: bookingDate.value }),
+  post("/booking-facility", {
+    tables: JSON.stringify(selectedTables),
+    date: bookingDate.value,
   });
-  if (!results.ok) {
-    return;
-  }
-
-  for (table of selectedTables) {
-    let li = document.getElementById(table.id);
-    li.style.backgroundColor = "";
-    li.dataset.tableistaken = table.isTaken ? "true" : "false";
-  }
-
-  window.location.href =
-    window.location.pathname + "?date=" + bookingDate.value;
 });
+
+function post(path, params, method = 'post') {
+  const form = document.createElement('form');
+  form.method = method;
+  form.action = path;
+
+  for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = key;
+      hiddenField.value = params[key];
+
+      form.appendChild(hiddenField);
+    }
+  }
+
+  document.body.appendChild(form);
+  form.submit();
+}
