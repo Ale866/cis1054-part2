@@ -482,7 +482,7 @@ nav > .nav-container > li form:hover {
   border-radius: 0.5rem;
 }
 .dish-details-container .detail-body {
-  height: 90%;
+  height: 85%;
 }
 .dish-details-container .detail-body .description {
   max-width: 70%;
