@@ -5,8 +5,8 @@
 		<div class="detail-header center">
 			<h1 class="m-0">{{ dish.name }}</h1>
 			{% if logged %}
-				<button class="like-btn">
-					<i data-isfavorite="{{dish.favorite}}" class="{% if dish.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart" id="{{dish.id}}"></i>
+				<button data-isfavorite="{{dish.favorite}}" id="{{dish.id}}" class="like-btn" aria-label="Add {{dish.name}} to favorites">
+					<i title="Toggle {{dish.name}} favorite." class="{% if dish.favorite == 1 %}fa-solid {% else %} fa-regular {% endif %} fa-heart"></i>
 				</button>
 			{% endif %}
 			<span class="card-chip">{{ dish.category }}</span>
@@ -19,5 +19,5 @@
 {% endblock %}
 
 {% block javascripts %}
-	 <script src="assets/scripts/like.js"></script>
+	<script src="assets/scripts/like.js"></script>
 {% endblock %}
