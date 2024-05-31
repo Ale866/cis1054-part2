@@ -497,6 +497,8 @@ nav > .nav-container > li form:hover {
 .dish-details-container .detail-header .card-chip {
   height: unset;
   padding: 0.25rem;
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: #007a3b;
   color: #fff5e1;
   border-radius: 0.5rem;
